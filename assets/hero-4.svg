@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="g4" cx="50%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#182a26"/>
+      <stop offset="55%" stop-color="#131313"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g4)"/>
+  <!-- celebration confetti -->
+  <g>
+    <rect x="180" y="150" width="14" height="14" fill="#47eed0" opacity="0.8" transform="rotate(20 187 157)"/>
+    <rect x="260" y="260" width="10" height="10" fill="#e9c400" opacity="0.8" transform="rotate(-15 265 265)"/>
+    <circle cx="360" cy="140" r="6" fill="#47eed0" opacity="0.7"/>
+    <circle cx="120" cy="340" r="5" fill="#e9c400" opacity="0.7"/>
+    <rect x="1350" y="180" width="14" height="14" fill="#e9c400" opacity="0.8" transform="rotate(35 1357 187)"/>
+    <rect x="1420" y="300" width="10" height="10" fill="#47eed0" opacity="0.8" transform="rotate(-25 1425 305)"/>
+    <circle cx="1300" cy="120" r="6" fill="#47eed0" opacity="0.7"/>
+    <circle cx="1480" cy="420" r="5" fill="#e9c400" opacity="0.7"/>
+    <rect x="700" y="90" width="12" height="12" fill="#47eed0" opacity="0.6" transform="rotate(10 706 96)"/>
+    <rect x="900" y="130" width="10" height="10" fill="#e9c400" opacity="0.6" transform="rotate(-10 905 135)"/>
+  </g>
+  <!-- ribbon ring -->
+  <circle cx="800" cy="480" r="260" fill="none" stroke="#47eed0" stroke-width="2" opacity="0.3"/>
+  <circle cx="800" cy="480" r="200" fill="none" stroke="#e9c400" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.35"/>
+  <text x="800" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900"
+    font-size="220" fill="#ffffff" opacity="0.06">10</text>
+</svg>

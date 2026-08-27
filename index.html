@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СМТТ 10 жил | Санхүүгийн мэдээллийн технологийн төв</title>
+  <meta name="description"
+    content="Санхүүгийн мэдээллийн технологийн төв УТҮГ-ын байгуулагдсаны 10 жилийн ойн баярын арга хэмжээ. 2026.11.06, Төрийн ордон, Улаанбаатар." />
+  <meta name="theme-color" content="#131313" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="apple-touch-icon" href="assets/logo.svg" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- shared logo emblem, referenced via <use> in header + footer -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo-emblem" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="24" fill="none" stroke="#2c2c2c" stroke-width="2.5" />
+      <circle cx="32" cy="32" r="24" fill="none" stroke="#47eed0" stroke-width="3" stroke-linecap="round"
+        stroke-dasharray="12.6 3.5" transform="rotate(-90 32 32)" />
+      <circle cx="32" cy="8" r="2.6" fill="#e9c400" />
+      <text x="32" y="40" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="700"
+        font-size="21" fill="#ffffff">10</text>
+    </symbol>
+  </svg>
+
+  <!-- decorative background orbs -->
+  <div class="bg-orb bg-orb--teal" id="orbTeal" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--gold" id="orbGold" aria-hidden="true"></div>
+
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <span class="img-slot brand-org-logo">
+          <img src="assets/new-LogoWhite.png" alt="Байгууллагын лого"
+            onerror="this.parentElement.classList.add('img-slot--empty'); this.remove()" />
+          <span class="img-slot-fallback"><span class="brand-fallback-text">СМТТ</span></span>
+        </span>
+        <span class="brand-badge-group">
+          <svg class="brand-badge"><use href="#logo-emblem"></use></svg>
+          <span class="brand-year">10 ЖИЛ</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#about">Тухай</a>
+        <a href="#history">Түүх</a>
+        <a href="#agenda">Хөтөлбөр</a>
+        <a href="#participate">Оролцох</a>
+        <a href="#sponsors">Ивээн тэтгэгчид</a>
+        <a href="#contact">Холбоо барих</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn btn--accent btn--sm" data-modal-open="registerModal">Бүртгүүлэх</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Цэс нээх" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow" data-reveal>
+          <span class="material-symbols-outlined">celebration</span>
+          Байгуулагдсаны ой
+        </p>
+        <h1 class="hero-title" data-reveal>
+          <span class="hero-title-line">АМЖИЛТЫН</span>
+          <span class="hero-title-line hero-title-line--accent">10 ЖИЛ</span>
+        </h1>
+        <p class="hero-subtitle" data-reveal>
+          Санхүүгийн мэдээллийн технологийн төв — санхүүгийн салбарын мэдээллийн технологийг
+          хөгжүүлж, цахим засаглалыг бэхжүүлсэн 10 жилийн түүхт замналаа хамт ажилласан
+          хамт олон, түнш байгууллагуудтайгаа тэмдэглэн өнгөрүүлье.
+        </p>
+
+        <div class="hero-meta" data-reveal>
+          <div class="hero-meta-item">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>2026.11.06 (Баасан)</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <span>Сүхбаатарын талбай → Төрийн ордон</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="material-symbols-outlined">groups</span>
+            <span>~<span class="stat-num" id="statGuests" data-target="270">0</span> оролцогч</span>
+          </div>
+        </div>
+
+        <div class="hero-cta" data-reveal>
+          <button type="button" class="btn btn--accent" data-modal-open="registerModal">
+            Бүртгүүлэх
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+          <a href="#agenda" class="btn btn--ghost">Хөтөлбөр үзэх</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION / ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Эрхэм зорилго</p>
+          <h2 class="section-title">
+            Санхүүгийн салбарын мэдээллийн технологийг хөгжүүлэх,
+            <span class="text-accent">цахим засаглалыг</span> бэхжүүлэх манлайлагч байгууллага
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card" data-reveal>
+            <span class="material-symbols-outlined about-card-icon">work_history</span>
+            <h3>Хамрах хүрээ</h3>
+            <p>Одоогийн болон урьд нь ажиллаж байсан нийт <strong>270 орчим</strong> хүн уригдана.</p>
+          </div>
+          <div class="about-card" data-reveal>
+            <span class="material-symbols-outlined about-card-icon">handshake</span>
+            <h3>Түнш байгууллагууд</h3>
+            <p>Томоохон харилцагч байгууллагын удирдлагууд оролцоно.</p>
+          </div>
+          <div class="about-card" data-reveal>
+            <span class="material-symbols-outlined about-card-icon">gavel</span>
+            <h3>Шийдвэр гаргагчид</h3>
+            <p>Төр, хувийн хэвшлийн чухал шийдвэр гаргалтад оролцдог хүмүүс хүрэлцэн ирнэ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HISTORY TIMELINE ============ -->
+    <section class="section section--alt" id="history">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Түүхэн замнал</p>
+          <h2 class="section-title">10 жилийн <span class="text-accent">хөгжлийн түүх</span></h2>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <!-- items injected by JS from data, see js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AGENDA ============ -->
+    <section class="section" id="agenda">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Хөтөлбөр</p>
+          <h2 class="section-title">Хаана, хэзээ, <span class="text-accent">юу болох вэ</span></h2>
+        </div>
+
+        <div class="agenda-loc">
+          <div class="agenda-loc-card" data-reveal>
+            <span class="material-symbols-outlined">flag</span>
+            <div>
+              <h4>Цугларах</h4>
+              <p>11.06 — Сүхбаатарын талбай дээр цугларна</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined agenda-loc-arrow">arrow_forward</span>
+          <div class="agenda-loc-card" data-reveal>
+            <span class="material-symbols-outlined">account_balance</span>
+            <div>
+              <h4>Үндсэн хөтөлбөр</h4>
+              <p>Төрийн ордон, гол танхим</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agenda-cols">
+          <div class="agenda-col" data-reveal>
+            <h3 class="agenda-col-title">
+              <span class="material-symbols-outlined">emoji_events</span>
+              Ёслолын хөтөлбөр
+            </h3>
+            <ol class="agenda-list">
+              <li>
+                <span class="agenda-dur">10 мин</span>
+                <div>
+                  <strong>Ерөнхий сайдын үг</strong>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">5 мин</span>
+                <div>
+                  <strong>Сангийн сайдын үг</strong>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">10 мин</span>
+                <div>
+                  <strong>Захирлын үг</strong>
+                  <p>Дараа нь байгууллагын түүхэн замналыг өгүүлэх баримтат кино</p>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">20 мин</span>
+                <div>
+                  <strong>Шагнал урамшуулал, гарын бэлэг гардуулах</strong>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">15 мин</span>
+                <div>
+                  <strong>Кофе завсарлага</strong>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">30 мин</span>
+                <div>
+                  <strong>Чөлөөт ярилцлага</strong>
+                </div>
+              </li>
+              <li>
+                <span class="agenda-dur">—</span>
+                <div>
+                  <strong>Хаалт</strong>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="agenda-col" data-reveal>
+            <h3 class="agenda-col-title">
+              <span class="material-symbols-outlined">celebration</span>
+              After Party
+            </h3>
+            <ul class="agenda-list agenda-list--party">
+              <li>
+                <span class="material-symbols-outlined">restaurant</span>
+                <div><strong>Зоог барих</strong></div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">podcasts</span>
+                <div><strong>Podcast бичлэг</strong></div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">music_note</span>
+                <div><strong>Хамтлаг, дуучид, бүжиг</strong></div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">mic</span>
+                <div><strong>Чөлөөт mic</strong></div>
+              </li>
+            </ul>
+            <p class="agenda-note">
+              <span class="material-symbols-outlined">info</span>
+              After party-д оролцох эсэх нь оролцогчийн төрлөөс хамаарна — доор
+              <a href="#participate">Оролцох нөхцөл</a> хэсгээс дэлгэрэнгүй үзнэ үү.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTICIPATION ============ -->
+    <section class="section section--alt" id="participate">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Оролцох нөхцөл</p>
+          <h2 class="section-title">Та хэрхэн <span class="text-accent">оролцох вэ</span>?</h2>
+        </div>
+
+        <div class="plans">
+          <div class="plan-card" data-reveal>
+            <h3>Энгийн оролцогч</h3>
+            <p class="plan-desc">Ёслолын үндсэн хөтөлбөрт оролцоно</p>
+            <ul class="plan-features">
+              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
+              <li><span class="material-symbols-outlined">check</span> Шагнал гардуулах ёслол</li>
+              <li class="plan-features--muted">
+                <span class="material-symbols-outlined">close</span> After party — оролцохгүй
+              </li>
+            </ul>
+          </div>
+
+          <div class="plan-card plan-card--highlight" data-reveal>
+            <span class="plan-badge">After Party</span>
+            <h3>Энгийн оролцогч + After Party</h3>
+            <p class="plan-desc">Ёслолын хөтөлбөр болон after party хоёуланд нь оролцоно</p>
+            <ul class="plan-features">
+              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
+              <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
+            </ul>
+            <div class="plan-tags">
+              <span class="tag tag--gold">Хураамжтай</span>
+              <span class="tag">Урилгаар</span>
+            </div>
+          </div>
+
+          <div class="plan-card" data-reveal>
+            <span class="plan-badge plan-badge--accent">Спонсор</span>
+            <h3>Спонсор оролцогч</h3>
+            <p class="plan-desc">Ивээн тэтгэгч байгууллагын төлөөлөл</p>
+            <ul class="plan-features">
+              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
+              <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
+              <li><span class="material-symbols-outlined">check</span> Хураамжгүй</li>
+            </ul>
+            <div class="plan-tags">
+              <span class="tag tag--accent">Хураамжгүй</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ REGISTRATION FLOW ============ -->
+        <div class="flow" id="register">
+          <div class="flow-copy">
+            <p class="section-kicker">Бүртгэлийн процесс</p>
+            <h3>Урилга хүлээн авахаас баталгаажуулах хүртэл</h3>
+            <p class="flow-desc">
+              Урилга бүрт цахим QR код хавсарган бүх хүнд хүргүүлнэ. Хураамжтай тохиолдолд
+              <strong>QPay</strong>-ээр төлбөрөө төлж, төлбөр баталгаажсаны дараа мэдээлэл
+              бүхий баталгаажуулах имэйл автоматаар очно.
+            </p>
+            <ol class="flow-steps">
+              <li>
+                <span class="material-symbols-outlined">qr_code_2</span>
+                <div>
+                  <strong>QR урилга авах</strong>
+                  <p>Бүх оролцогчид цахим урилга QR кодын хамт хүргэгдэнэ</p>
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">payments</span>
+                <div>
+                  <strong>QPay-ээр төлбөр төлөх</strong>
+                  <p>Шаардлагатай тохиолдолд (жишээ нь: after party хураамж) төлбөрөө төлнө</p>
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">mark_email_read</span>
+                <div>
+                  <strong>Баталгаажуулах имэйл</strong>
+                  <p>Төлбөр амжилттай хийгдмэгц баталгаажуулах имэйл автоматаар илгээгдэнэ</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="flow-cta" data-reveal>
+            <span class="material-symbols-outlined flow-cta-icon">how_to_reg</span>
+            <h3>Бүртгүүлэх маягт</h3>
+            <p>Дээрх алхмуудыг дагаад хэдхэн минутын дотор бүртгүүлээрэй.</p>
+            <button type="button" class="btn btn--accent btn--block" data-modal-open="registerModal">
+              Бүртгүүлэх
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPONSORS ============ -->
+    <section class="section" id="sponsors">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Ивээн тэтгэгчид</p>
+          <h2 class="section-title">Хамтран ажилладаг <span class="text-accent">түнш байгууллагууд</span></h2>
+        </div>
+
+        <div class="sponsor-grid" id="sponsorTrack" data-reveal>
+          <!-- example partner logos injected by JS, see js/main.js -->
+        </div>
+       
+        <div class="sponsor-cta" data-reveal>
+          <div class="sponsor-cta-copy">
+            <h3>
+              <span class="material-symbols-outlined">workspace_premium</span>
+              Ивээн тэтгэгч болох
+            </h3>
+            <p class="sponsor-cta-desc">Байгууллагынхаа брэндийг 10 жилийн ойн арга хэмжээнд нэгдсэн загвараар харуулах боломж.</p>
+            <ul class="sponsor-cta-list">
+              <li><span class="material-symbols-outlined">check_circle</span> Спонсорын лого нэгдсэн загвараар веб болон танхимд байршина</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Доод хэмжээ — <strong>1,000,000₮</strong> ба түүнээс дээш</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Бүртгүүлэх эцсийн хугацаа — <strong>2026.11.01</strong></li>
+              <li><span class="material-symbols-outlined">check_circle</span> Спонсор төлөөлөгч after party-д хураамжгүй оролцоно</li>
+            </ul>
+          </div>
+          <div class="sponsor-cta-panel">
+            <span class="material-symbols-outlined sponsor-cta-panel-icon">workspace_premium</span>
+            <h4>Хүсэлт илгээх</h4>
+            <p>Мэдээллээ үлдээвэл манай баг тантай эргэн холбогдоно.</p>
+            <button type="button" class="btn btn--accent btn--block" data-modal-open="sponsorModal">
+              Ивээн тэтгэгч болох
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / FOOTER CTA ============ -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact-inner">
+        <h2 class="section-title text-center">
+          Асуулт байвал <span class="text-accent">бидэнтэй холбогдоорой</span>
+        </h2>
+        <div class="contact-grid">
+          <a href="mailto:info@smtt.gov.mn" class="contact-card" data-reveal>
+            <span class="material-symbols-outlined">mail</span>
+            <div>
+              <h4>И-мэйл</h4>
+              <p>info@smtt.gov.mn</p>
+            </div>
+          </a>
+          <a href="tel:+97670000000" class="contact-card" data-reveal>
+            <span class="material-symbols-outlined">call</span>
+            <div>
+              <h4>Утас</h4>
+              <p>+976 7000-0000</p>
+            </div>
+          </a>
+          <div class="contact-card" data-reveal>
+            <span class="material-symbols-outlined">location_on</span>
+            <div>
+              <h4>Хаяг</h4>
+              <p>Улаанбаатар хот, Төрийн ордон</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <span class="img-slot brand-org-logo">
+          <img src="assets/new-LogoWhite.png" alt="Байгууллагын лого"
+            onerror="this.parentElement.classList.add('img-slot--empty'); this.remove()" />
+          <span class="img-slot-fallback"><span class="brand-fallback-text">СМТТ</span></span>
+        </span>
+        <span class="brand-badge-group">
+          <svg class="brand-badge"><use href="#logo-emblem"></use></svg>
+          <span class="brand-year">10 ЖИЛ</span>
+        </span>
+      </div>
+      <p class="footer-copy">© 2026 Санхүүгийн мэдээллийн технологийн төв. Бүх эрх хуулиар хамгаалагдсан.</p>
+    </div>
+  </footer>
+
+  <!-- ============ REGISTER MODAL ============ -->
+  <div class="modal-overlay" id="registerModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">
+      <button type="button" class="modal-close" data-modal-close aria-label="Хаах">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <h3 id="registerModalTitle">Бүртгүүлэх маягт</h3>
+      <p class="modal-note">Энэ бол загварчлалын демо маягт бөгөөд одоогоор мэдээлэл илгээхгүй.</p>
+
+      <form id="registerForm" class="flow-form">
+        <label>
+          Овог нэр
+          <input type="text" name="name" placeholder="Бат Болд" required />
+        </label>
+        <label>
+          Байгууллага
+          <input type="text" name="org" placeholder="Байгууллагын нэр" />
+        </label>
+        <div class="form-row">
+          <label>
+            Утас
+            <input type="tel" name="phone" placeholder="9911XXXX" required />
+          </label>
+          <label>
+            И-мэйл
+            <input type="email" name="email" placeholder="name@mail.mn" required />
+          </label>
+        </div>
+
+        <fieldset class="form-fieldset">
+          <legend>Оролцогчийн төрөл</legend>
+          <label class="radio-option">
+            <input type="radio" name="type" value="regular" checked />
+            Энгийн оролцогч
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="type" value="regular-party" />
+            Энгийн оролцогч + After Party
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="type" value="sponsor" />
+            Спонсор оролцогч
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn btn--accent btn--block">
+          Бүртгэл илгээх
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ SPONSOR MODAL ============ -->
+  <div class="modal-overlay" id="sponsorModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sponsorModalTitle">
+      <button type="button" class="modal-close" data-modal-close aria-label="Хаах">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <h3 id="sponsorModalTitle">Ивээн тэтгэгч болох</h3>
+      <p class="modal-note">Мэдээллээ үлдээвэл бид тантай эргэн холбогдоно.</p>
+
+      <form id="sponsorForm">
+        <label>
+          Байгууллагын нэр
+          <input type="text" name="org" placeholder="ХХК нэр" required />
+        </label>
+        <div class="form-row">
+          <label>
+            Холбогдох хүн
+            <input type="text" name="contact" placeholder="Овог нэр" required />
+          </label>
+          <label>
+            Утас
+            <input type="tel" name="phone" placeholder="9911XXXX" required />
+          </label>
+        </div>
+        <label>
+          И-мэйл
+          <input type="email" name="email" placeholder="name@company.mn" required />
+        </label>
+        <label>
+          Ивээн тэтгэх дүн (₮)
+          <input type="text" name="amount" placeholder="Жишээ: 1,500,000" />
+        </label>
+        <label>
+          Тайлбар
+          <textarea name="message" rows="3" placeholder="Нэмэлт хүсэлт, санал"></textarea>
+        </label>
+
+        <button type="submit" class="btn btn--accent btn--block">
+          Хүсэлт илгээх
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- toast for demo form submit -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

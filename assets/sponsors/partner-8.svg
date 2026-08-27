@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48">
+  <rect x="3" y="10" width="9" height="20" rx="1.5" fill="#f97316"/>
+  <rect x="15" y="4" width="9" height="26" rx="1.5" fill="#f97316" opacity="0.6"/>
+  <text x="34" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="14.5" letter-spacing="0.4"
+    fill="#e5e2e1">МӨНХ ҮЙЛДВЭР</text>
+</svg>
