@@ -282,8 +282,17 @@
 
         <div class="plans">
           <div class="plan-card" data-reveal>
-            <h3>Энгийн оролцогч</h3>
+            <h3>Урилгаар оролцогч</h3>
             <p class="plan-desc">Ёслолын үндсэн хөтөлбөрт оролцоно</p>
+            <div class="plan-venue">
+              <div class="plan-venue-stop">
+                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
+                <div class="plan-venue-info">
+                  <h4>Үндсэн хөтөлбөр</h4>
+                  <p>Төрийн ордон, гол танхим</p>
+                </div>
+              </div>
+            </div>
             <ul class="plan-features">
               <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
               <li><span class="material-symbols-outlined">check</span> Шагнал гардуулах ёслол</li>
@@ -293,17 +302,31 @@
             </ul>
           </div>
 
-          <div class="plan-card plan-card--highlight" data-reveal>
+          <div class="plan-card" data-reveal>
             <span class="plan-badge">After Party</span>
-            <h3>Энгийн оролцогч + After Party</h3>
-            <p class="plan-desc">Ёслолын хөтөлбөр болон after party хоёуланд нь оролцоно</p>
+            <h3>Урилгаар оролцогч + After Party</h3>
+            <div class="plan-venue">
+              <div class="plan-venue-stop">
+                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
+                <div class="plan-venue-info">
+                  <h4>Үндсэн хөтөлбөр</h4>
+                  <p>Төрийн ордон, гол танхим</p>
+                </div>
+              </div>
+              <div class="plan-venue-stop">
+                <span class="plan-venue-marker"><span class="material-symbols-outlined plan-venue-walk">directions_walk</span></span>
+                <div class="plan-venue-info">
+                  <h4>After Party</h4>
+                  <p>Тусдаа байршилд</p>
+                </div>
+              </div>
+            </div>
             <ul class="plan-features">
               <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
               <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
             </ul>
             <div class="plan-tags">
               <span class="tag tag--gold">Хураамжтай</span>
-              <span class="tag">Урилгаар</span>
             </div>
           </div>
 
@@ -311,6 +334,22 @@
             <span class="plan-badge plan-badge--accent">Спонсор</span>
             <h3>Спонсор оролцогч</h3>
             <p class="plan-desc">Ивээн тэтгэгч байгууллагын төлөөлөл</p>
+            <div class="plan-venue">
+              <div class="plan-venue-stop">
+                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
+                <div class="plan-venue-info">
+                  <h4>Үндсэн хөтөлбөр</h4>
+                  <p>Төрийн ордон, гол танхим</p>
+                </div>
+              </div>
+              <div class="plan-venue-stop">
+                <span class="plan-venue-marker"><span class="material-symbols-outlined plan-venue-walk">directions_walk</span></span>
+                <div class="plan-venue-info">
+                  <h4>After Party</h4>
+                  <p>Тусдаа байршилд</p>
+                </div>
+              </div>
+            </div>
             <ul class="plan-features">
               <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
               <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
@@ -493,11 +532,11 @@
           <legend>Оролцогчийн төрөл</legend>
           <label class="radio-option">
             <input type="radio" name="type" value="regular" checked />
-            Энгийн оролцогч
+            Урилгаар оролцогч
           </label>
           <label class="radio-option">
             <input type="radio" name="type" value="regular-party" />
-            Энгийн оролцогч + After Party
+            Урилгаар оролцогч + After Party
           </label>
           <label class="radio-option">
             <input type="radio" name="type" value="sponsor" />
