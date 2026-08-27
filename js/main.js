@@ -170,3 +170,15 @@ document.querySelectorAll(".stat-num[data-target]").forEach((el) => {
   animateCountUp(el, Number(el.dataset.target));
 });
 
+// ============ back to top ============
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop?.classList.toggle("is-visible", window.scrollY > 480);
+});
+
+backToTop?.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+

@@ -49,7 +49,6 @@
           <span class="img-slot-fallback"><span class="brand-fallback-text">СМТТ</span></span>
         </span>
         <span class="brand-badge-group">
-          <svg class="brand-badge"><use href="#logo-emblem"></use></svg>
           <span class="brand-year">10 ЖИЛ</span>
         </span>
       </a>
@@ -64,7 +63,6 @@
       </nav>
 
       <div class="header-actions">
-        <button type="button" class="btn btn--accent btn--sm" data-modal-open="registerModal">Бүртгүүлэх</button>
         <button class="nav-toggle" id="navToggle" aria-label="Цэс нээх" aria-expanded="false">
           <span class="material-symbols-outlined">menu</span>
         </button>
@@ -106,11 +104,14 @@
         </div>
 
         <div class="hero-cta" data-reveal>
-          <button type="button" class="btn btn--accent" data-modal-open="registerModal">
+          <button type="button" class="btn btn--ghost" data-modal-open="registerModal">
+            <span class="material-symbols-outlined">how_to_reg</span>
             Бүртгүүлэх
-            <span class="material-symbols-outlined">arrow_forward</span>
           </button>
-          <a href="#agenda" class="btn btn--ghost">Хөтөлбөр үзэх</a>
+          <a href="#agenda" class="btn btn--ghost">
+            <span class="material-symbols-outlined">calendar_month</span>
+            Хөтөлбөр үзэх
+          </a>
         </div>
       </div>
     </section>
@@ -282,7 +283,7 @@
 
         <div class="plans">
           <div class="plan-card" data-reveal>
-            <h3>Урилгаар оролцогч</h3>
+             <span class="plan-badge plan-badge--accent">Урилгаар оролцогч</span>
             <p class="plan-desc">Ёслолын үндсэн хөтөлбөрт оролцоно</p>
             <div class="plan-venue">
               <div class="plan-venue-stop">
@@ -300,6 +301,9 @@
                 <span class="material-symbols-outlined">close</span> After party — оролцохгүй
               </li>
             </ul>
+             <div class="plan-tags">
+              <span class="tag tag--accent">Хураамжгүй</span>
+            </div>
           </div>
 
           <div class="plan-card" data-reveal>
@@ -353,7 +357,7 @@
             <ul class="plan-features">
               <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
               <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
-              <li><span class="material-symbols-outlined">check</span> Хураамжгүй</li>
+          
             </ul>
             <div class="plan-tags">
               <span class="tag tag--accent">Хураамжгүй</span>
@@ -491,13 +495,17 @@
           <span class="img-slot-fallback"><span class="brand-fallback-text">СМТТ</span></span>
         </span>
         <span class="brand-badge-group">
-          <svg class="brand-badge"><use href="#logo-emblem"></use></svg>
           <span class="brand-year">10 ЖИЛ</span>
         </span>
       </div>
       <p class="footer-copy">© 2026 Санхүүгийн мэдээллийн технологийн төв. Бүх эрх хуулиар хамгаалагдсан.</p>
     </div>
   </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Дээшээ буцах">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </a>
 
   <!-- ============ REGISTER MODAL ============ -->
   <div class="modal-overlay" id="registerModal" aria-hidden="true">
