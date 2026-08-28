@@ -114,8 +114,20 @@ if (sponsorTrack) {
   ).join("");
 }
 
-// ============ reveal on scroll ============
+// ============ reveal on scroll (staggered by sibling position) ============
 const revealEls = document.querySelectorAll("[data-reveal]");
+const revealGroups = new Map();
+revealEls.forEach((el) => {
+  const siblings = revealGroups.get(el.parentElement) ?? [];
+  siblings.push(el);
+  revealGroups.set(el.parentElement, siblings);
+});
+revealGroups.forEach((siblings) => {
+  siblings.forEach((el, i) => {
+    el.style.setProperty("--reveal-delay", `${Math.min(i, 5) * 0.09}s`);
+  });
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
