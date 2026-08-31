@@ -206,7 +206,12 @@ function renderYearTabs() {
       ${entry.year}
     </button>
   `).join("");
-  historyYearTabs.querySelector(".is-active")?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  // scroll only the horizontal tab strip into view — scrollIntoView would also scroll the whole page vertically
+  const activeTab = historyYearTabs.querySelector(".is-active");
+  if (activeTab) {
+    const target = activeTab.offsetLeft - (historyYearTabs.clientWidth - activeTab.clientWidth) / 2;
+    historyYearTabs.scrollTo({ left: target, behavior: "smooth" });
+  }
 }
 
 function setActiveYear(index) {
@@ -218,6 +223,12 @@ function setActiveYear(index) {
   renderHistoryDetail(activeYearIndex, { instant: true, direction });
 }
 
+// hovering a year tab switches to it directly; click still works for touch/keyboard users
+historyYearTabs?.addEventListener("mouseover", (e) => {
+  const tab = e.target.closest(".history-year-tab");
+  if (!tab) return;
+  setActiveYear(Number(tab.dataset.yearIndex));
+});
 historyYearTabs?.addEventListener("click", (e) => {
   const tab = e.target.closest(".history-year-tab");
   if (!tab) return;
