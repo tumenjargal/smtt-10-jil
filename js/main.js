@@ -1,3 +1,22 @@
+// ============ always load at the top of the page ============
+// overrides browser scroll-position restoration and any URL hash so a fresh
+// page load never lands mid-page — the browser applies its own hash-scroll
+// after this script runs, so we force it again on window "load" too
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+window.addEventListener("load", () => window.scrollTo(0, 0));
+
+// ============ "Нүүр" / logo / back-to-top links (#top) ============
+// #top targets the sticky <header>. A position:sticky element's rect always
+// reports top:0 once stuck, so native anchor scrolling / scrollIntoView()
+// thinks it's "already visible" and refuses to scroll at all. Handle it manually.
+document.querySelectorAll('a[href="#top"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
 // ============ mobile nav toggle ============
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("nav");
@@ -60,20 +79,20 @@ const TIMELINE = [
       "ЦТБ нэвтрүүлсэн",
       "ГТСМТТ УТҮГ байгуулагдсан",
   ] },
-  { year: "2017", photo: "assets/history/2017.jpg", items: [
+  { year: "2017", photo: "assets/history/ebarimt.png", items: [
     "ТУНС, ETAX төсөл хөгжүүлэлт, туршилт",
   ] },
-  { year: "2018", photo: "assets/history/2018.jpg", items: [
+  { year: "2018", photo: "assets/history/ebarimt.png", items: [
     "Татвар төлөгчийн цахим бүртгэлийн систем",
     "ТАХ ТҮБ АПП",
     "Эрүүл мэндийн даатгалын цахим систем",
   ] },
-  { year: "2019", photo: "assets/history/2019.jpg", items: [
+  { year: "2019", photo: "assets/history/ebarimt.png", items: [
     "Төрийн албан хаагчийн цалингийн нэгдсэн систем",
     "Хөрөнгө оруулагчдын цахим бүртгэлийн систем",
     "Нэвтрэлтийн нэгдсэн систем",
   ] },
-  { year: "2020", photo: "assets/history/2020.jpg", items: [
+  { year: "2020", photo: "assets/history/ebarimt.png", items: [
     "ХХААХҮЯ-ны урамшуулын систем",
     "Чат бот",
     "Төрийн үйлчилгээний төлбөрийн нэгдсэн систем",
@@ -85,7 +104,7 @@ const TIMELINE = [
     "Хүнсний эрхийн бичгийн систем",
     "Тусгай зөвшөөрлийн цахим систем",
   ] },
-  { year: "2021", photo: "assets/history/2021.jpg", items: [
+  { year: "2021", photo: "assets/history/ebarimt.png", items: [
     "QRBARIMT",
     "Лабораторийн мэдээллийн удирдлагын систем",
     "Ухаалаг гарц",
@@ -97,15 +116,15 @@ const TIMELINE = [
     "Санхүүгийн нэгдсэн мэдээллийн систем /Dashboard/",
     "Цахим санхүүгийн тайлангийн систем /И-Баланс/",
   ] },
-  { year: "2022", photo: "assets/history/2022.jpg", items: [
+  { year: "2022", photo: "assets/history/ebarimt.png", items: [
     "Битүүмжлэгдсэн тээврийн хэрэгслийн систем",
     "Лавлагаа систем",
   ] },
-  { year: "2023", photo: "assets/history/2023.jpg", items: [
+  { year: "2023", photo: "assets/history/ebarimt.png", items: [
     "Төрийн сангийн нэгдсэн портал систем",
     "Нэхэмжлэхийн систем",
   ] },
-  { year: "2024", photo: "assets/history/2024.jpg", items: [
+  { year: "2024", photo: "assets/history/ebarimt.png", items: [
     "Их өгэгдлийн сан",
     "Гадаад жуулчны НӨАТ-ын буцаан олголтын систем",
     "Их өгэгдэлд суурилсан шийдвэр гаргалт, нэгдсэн мэдээлэл хяналтын систем",
@@ -113,8 +132,8 @@ const TIMELINE = [
     "Татварын удирдлагын нэгдсэн систем - IMS",
     "Татварын удирдлагын нэгдсэн систем - ACTIVITI",
   ] },
-  { year: "2025", photo: "assets/history/2025.jpg", items: [] },
-  { year: "2026", photo: "assets/history/2026.jpg", items: ["Байгуулагдсаны 10 жилийн ойгоо тэмдэглэв"] },
+  { year: "2025", photo: "assets/history/ebarimt.png", items: [] },
+  { year: "2026", photo: "assets/history/ebarimt.png", items: ["Байгуулагдсаны 10 жилийн ойгоо тэмдэглэв"] },
 ];
 
 // ============ history: year-by-year scroll browser ============

@@ -78,15 +78,15 @@
         <source src="assets/logo intro.mp4" type="video/mp4" />
       </video>
       <div class="hero-bg-overlay" aria-hidden="true"></div>
-      <!--<div class="container hero-inner">
-        <p class="eyebrow" data-reveal>
+      <div class="container hero-inner">
+        <!--<p class="eyebrow" data-reveal>
           <span class="material-symbols-outlined">celebration</span>
           Байгуулагдсаны ой
         </p>
-        <!--<h1 class="hero-title" data-reveal>
+        <h1 class="hero-title" data-reveal>
           <span class="hero-title-line">АМЖИЛТЫН</span>
           <span class="hero-title-line hero-title-line--accent">10 ЖИЛ</span>
-        </h1>
+        </h1>-->
         <p class="hero-subtitle" data-reveal>
           Санхүүгийн мэдээллийн технологийн төв — санхүүгийн салбарын мэдээллийн технологийг
           хөгжүүлж, цахим засаглалыг бэхжүүлсэн 10 жилийн түүхт замналаа хамт ажилласан
@@ -107,7 +107,7 @@
             <span>~<span class="stat-num" id="statGuests" data-target="270">0</span> оролцогч</span>
           </div>
         </div>
-      </div>-->
+      </div>
     </section>
 
     <!-- ============ MISSION / ABOUT ============ -->
@@ -397,29 +397,25 @@
         <span class="material-symbols-outlined">close</span>
       </button>
       <h3 id="registerModalTitle">Бүртгүүлэх маягт</h3>
-      <!--<p class="modal-note">Энэ бол загварчлалын демо маягт бөгөөд одоогоор мэдээлэл илгээхгүй.</p>-->
+      <p class="modal-note">Бүртгэл баталгаажсаны дараа мэдээлэл бүхий баталгаажуулах имэйл автоматаар очно.</p>
 
       <form id="registerForm" class="flow-form">
-        <div class="form-row">
-          <label>
-            Овог нэр
-            <input type="text" name="name" placeholder="Бат Болд" required />
-          </label>
-          <label>
-            Регистрийн дугаар
-            <input type="text" name="regnum" placeholder="АА00112233" required />
-          </label>
-        </div>
-        <div class="form-row">
-          <label>
-            Утас
-            <input type="tel" name="phone" placeholder="9911XXXX" required />
-          </label>
-          <label>
-            И-мэйл
-            <input type="email" name="email" placeholder="name@mail.mn" required />
-          </label>
-        </div>
+        <label>
+          Овог нэр
+          <input type="text" name="name" placeholder="" required />
+        </label>
+        <label>
+          Регистрийн дугаар
+          <input type="text" name="regnum" placeholder="" required />
+        </label>
+        <label>
+          Утас
+          <input type="tel" name="phone" placeholder="" required />
+        </label>
+        <label>
+          И-мэйл
+          <input type="email" name="email" placeholder="" required />
+        </label>
 
         <button type="submit" class="btn btn--accent btn--block">
           Бүртгэл илгээх
