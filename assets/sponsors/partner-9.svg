@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 48">
+  <g fill="none" stroke="#47eed0" stroke-width="2.5">
+    <circle cx="14" cy="20" r="10"/>
+    <path d="M14 10 L14 20 L20 24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="34" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="0.3"
+    fill="#e5e2e1">СОЁМБО ИНВЕСТ</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48">
+  <path d="M4 24 L14 6 L24 24 Z" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M4 32 L14 24 L24 32" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+  <text x="34" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="0.5"
+    fill="#e5e2e1">НОМИН ТРЕЙД</text>
+</svg>
