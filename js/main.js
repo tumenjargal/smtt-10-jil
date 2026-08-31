@@ -52,50 +52,187 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ============ history timeline data ============
+// системийн нэвтрүүлэлтийн жагсаалт — эх сурвалж: байгууллагын системийн он дараалсан timeline (2014-2024)
 const TIMELINE = [
-  { year: "2014", photo: "assets/history/2014.jpg", items: ["НӨАТУС төсөл үүсгэн байгуулагдсан"] },
-  { year: "2015", photo: "assets/history/2015.jpg", items: ["НӨАТУС төсөл хөгжүүлэлт, туршилт"] },
-  { year: "2016", photo: "assets/history/2016.jpg", items: ["ЦТБ нэвтрүүлсэн", "ГТСМТТ УТҮГ байгуулагдсан"] },
-  { year: "2017", photo: "assets/history/2017.jpg", items: ["ТУНС, ETAX төсөл хөгжүүлэлт, туршилт"] },
-  { year: "2018", photo: "assets/history/2018.jpg", items: ["ТУНС, ETAX системийг нэвтрүүлсэн"] },
-  { year: "2019", photo: "assets/history/2019.jpg", items: [] },
-  { year: "2020", photo: "assets/history/2020.jpg", items: [] },
-  { year: "2021", photo: "assets/history/2021.jpg", items: [] },
-  { year: "2022", photo: "assets/history/2022.jpg", items: [] },
-  { year: "2023", photo: "assets/history/2023.jpg", items: [] },
-  { year: "2024", photo: "assets/history/2024.jpg", items: [] },
+  { year: "2016", photo: "assets/history/ebarimt.png", items: [
+     "Нэмэгдсэн өртгийн албан татварын урамшууллын систем",
+      { name: "Аж ахуйн нэгжийн цахим төлбөрийн баримтын систем", photo: "assets/history/invoice.jpg" },
+      "ЦТБ нэвтрүүлсэн",
+      "ГТСМТТ УТҮГ байгуулагдсан",
+  ] },
+  { year: "2017", photo: "assets/history/2017.jpg", items: [
+    "ТУНС, ETAX төсөл хөгжүүлэлт, туршилт",
+  ] },
+  { year: "2018", photo: "assets/history/2018.jpg", items: [
+    "Татвар төлөгчийн цахим бүртгэлийн систем",
+    "ТАХ ТҮБ АПП",
+    "Эрүүл мэндийн даатгалын цахим систем",
+  ] },
+  { year: "2019", photo: "assets/history/2019.jpg", items: [
+    "Төрийн албан хаагчийн цалингийн нэгдсэн систем",
+    "Хөрөнгө оруулагчдын цахим бүртгэлийн систем",
+    "Нэвтрэлтийн нэгдсэн систем",
+  ] },
+  { year: "2020", photo: "assets/history/2020.jpg", items: [
+    "ХХААХҮЯ-ны урамшуулын систем",
+    "Чат бот",
+    "Төрийн үйлчилгээний төлбөрийн нэгдсэн систем",
+    "Эрхийн бүртгэлийн сан",
+    "Төрийн сангийн гүйлгээний нэгдсэн систем",
+    "1072 / Хувьцаа/",
+    "Хяналт шинжилгээ үнэлгээний систем",
+    "Халамжийн нэгдсэн систем",
+    "Хүнсний эрхийн бичгийн систем",
+    "Тусгай зөвшөөрлийн цахим систем",
+  ] },
+  { year: "2021", photo: "assets/history/2021.jpg", items: [
+    "QRBARIMT",
+    "Лабораторийн мэдээллийн удирдлагын систем",
+    "Ухаалаг гарц",
+    "Эрдэс баялаг мэргэжлийн зөвлөлийн систем",
+    "Вакцины нэгдсэн систем",
+    "Валютын гүйлгээний нэгдсэн систем",
+    "Гадаад валют арилжааны хяналтын систем",
+    "Замын хураамжийн систем /ebarimt/",
+    "Санхүүгийн нэгдсэн мэдээллийн систем /Dashboard/",
+    "Цахим санхүүгийн тайлангийн систем /И-Баланс/",
+  ] },
+  { year: "2022", photo: "assets/history/2022.jpg", items: [
+    "Битүүмжлэгдсэн тээврийн хэрэгслийн систем",
+    "Лавлагаа систем",
+  ] },
+  { year: "2023", photo: "assets/history/2023.jpg", items: [
+    "Төрийн сангийн нэгдсэн портал систем",
+    "Нэхэмжлэхийн систем",
+  ] },
+  { year: "2024", photo: "assets/history/2024.jpg", items: [
+    "Их өгэгдлийн сан",
+    "Гадаад жуулчны НӨАТ-ын буцаан олголтын систем",
+    "Их өгэгдэлд суурилсан шийдвэр гаргалт, нэгдсэн мэдээлэл хяналтын систем",
+    "Санхүүгийн болон төсвийн гүйцэтгэлийн тайлан систем",
+    "Татварын удирдлагын нэгдсэн систем - IMS",
+    "Татварын удирдлагын нэгдсэн систем - ACTIVITI",
+  ] },
   { year: "2025", photo: "assets/history/2025.jpg", items: [] },
   { year: "2026", photo: "assets/history/2026.jpg", items: ["Байгуулагдсаны 10 жилийн ойгоо тэмдэглэв"] },
 ];
 
-const timelineEl = document.getElementById("timeline");
-if (timelineEl) {
-  timelineEl.innerHTML = TIMELINE.map((entry, i) => {
-    const hasContent = entry.items.length > 0;
-    const side = i % 2 === 0 ? "left" : "right";
-    const body = hasContent
-      ? entry.items.map((t) => `<p>${t}</p>`).join("")
-      : `<p>Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ</p>`;
-    return `
-      <div class="timeline-row timeline-row--${side}${hasContent ? "" : " timeline-item--empty"}" data-reveal>
-        <div class="timeline-card">
-          <h3 class="timeline-year">${entry.year}</h3>
-          <div class="timeline-body">
-            <div class="img-slot timeline-thumb">
-              <img src="${entry.photo}" alt="${entry.year} он"
-                onerror="this.parentElement.classList.add('img-slot--empty'); this.remove()" />
-              <span class="img-slot-fallback"><span class="material-symbols-outlined">image</span></span>
-            </div>
-            <div class="timeline-text">${body}</div>
-          </div>
-        </div>
-        <div class="timeline-node"><span class="timeline-node-dot"></span></div>
-      </div>
-    `;
-  }).join("");
+// ============ history: year-by-year scroll browser ============
+const historyYearTabs = document.getElementById("historyYearTabs");
+const historyList = document.getElementById("historyList");
+let activeYearIndex = 0;
+
+// years with more than this many systems switch to the compact grid
+// so a dense year (e.g. 10 systems) never forces the page to scroll
+const HISTORY_COMPACT_THRESHOLD = 2;
+
+// items are either a plain string or { name, photo } when a system has its own image
+function historyItemName(item) {
+  return typeof item === "string" ? item : item.name;
+}
+function historyItemPhoto(item, fallbackPhoto) {
+  return typeof item === "string" ? fallbackPhoto : item.photo || fallbackPhoto;
 }
 
+function renderHistoryDetail(yearIndex, { instant = false, direction = 0 } = {}) {
+  if (!historyList) return;
+  const entry = TIMELINE[yearIndex];
+  const revealAttr = instant ? "" : "data-reveal";
+  const isCompact = entry.items.length > HISTORY_COMPACT_THRESHOLD;
+  const slideClass = direction > 0 ? " history-row--enter-right" : direction < 0 ? " history-row--enter-left" : "";
+
+  let content;
+  if (!entry.items.length) {
+    content = `<p class="history-row-text history-row-text--empty">Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ</p>`;
+  } else if (isCompact) {
+    content = `<ul class="history-row-grid">${entry.items.map((item) => `
+      <li data-photo="${historyItemPhoto(item, entry.photo)}">${historyItemName(item)}</li>
+    `).join("")}</ul>`;
+  } else {
+    content = entry.items.map((item) => `
+      <p class="history-row-text" data-photo="${historyItemPhoto(item, entry.photo)}">${historyItemName(item)}</p>
+    `).join("");
+  }
+
+  historyList.innerHTML = `
+    <div class="history-row${isCompact ? " history-row--compact" : ""}${slideClass}" ${revealAttr} data-default-photo="${entry.photo}">
+      <div class="history-row-year"><h3>${entry.year}</h3></div>
+      <div class="history-row-body">${content}</div>
+      <div class="img-slot history-row-photo">
+        <img src="${entry.photo}" alt="${entry.year} он"
+          onerror="this.style.opacity='0'; this.parentElement.classList.add('img-slot--empty')"
+          onload="this.style.opacity='1'; this.parentElement.classList.remove('img-slot--empty')" />
+        <span class="img-slot-fallback"><span class="material-symbols-outlined">image</span></span>
+      </div>
+    </div>
+  `;
+}
+
+// hovering a system name crossfades the row's photo to that system's own image (falls back to the year's photo)
+function swapHistoryPhoto(photoBox, src) {
+  const img = photoBox?.querySelector("img");
+  if (!img || img.dataset.targetSrc === src) return;
+  img.dataset.targetSrc = src;
+  img.style.opacity = "0";
+  setTimeout(() => {
+    if (img.dataset.targetSrc !== src) return; // a newer hover already took over
+    photoBox.classList.remove("img-slot--empty");
+    img.src = src;
+  }, 160);
+}
+
+historyList?.addEventListener("mouseover", (e) => {
+  const target = e.target.closest("[data-photo]");
+  if (!target) return;
+  const row = target.closest(".history-row");
+  const photoBox = row?.querySelector(".history-row-photo");
+  photoBox?.classList.add("is-active");
+  swapHistoryPhoto(photoBox, target.dataset.photo);
+});
+historyList?.addEventListener("mouseout", (e) => {
+  const target = e.target.closest("[data-photo]");
+  if (!target || target.contains(e.relatedTarget)) return;
+  const row = target.closest(".history-row");
+  const photoBox = row?.querySelector(".history-row-photo");
+  photoBox?.classList.remove("is-active");
+  const defaultPhoto = row?.dataset.defaultPhoto;
+  if (defaultPhoto) swapHistoryPhoto(photoBox, defaultPhoto);
+});
+
+function renderYearTabs() {
+  if (!historyYearTabs) return;
+  historyYearTabs.innerHTML = TIMELINE.map((entry, i) => `
+    <button type="button" class="history-year-tab${i === activeYearIndex ? " is-active" : ""}" data-year-index="${i}">
+      ${entry.year}
+    </button>
+  `).join("");
+  historyYearTabs.querySelector(".is-active")?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+}
+
+function setActiveYear(index) {
+  const previousIndex = activeYearIndex;
+  activeYearIndex = (index + TIMELINE.length) % TIMELINE.length;
+  if (activeYearIndex === previousIndex) return;
+  const direction = activeYearIndex > previousIndex ? 1 : -1;
+  renderYearTabs();
+  renderHistoryDetail(activeYearIndex, { instant: true, direction });
+}
+
+historyYearTabs?.addEventListener("click", (e) => {
+  const tab = e.target.closest(".history-year-tab");
+  if (!tab) return;
+  setActiveYear(Number(tab.dataset.yearIndex));
+});
+
+document.querySelectorAll("[data-year-nav]").forEach((btn) => {
+  btn.addEventListener("click", () => setActiveYear(activeYearIndex + Number(btn.dataset.yearNav)));
+});
+
+renderYearTabs();
+renderHistoryDetail(activeYearIndex);
+
 // ============ sponsor marquee (example partner logos) ============
+// TODO: батлагдсан ивээн тэтгэгчдийн жинхэнэ жагсаалт ирмэгц энд солих (одоогоор жишээ өгөгдөл)
 const SPONSORS = [
   { name: "Од Групп", file: "assets/sponsors/partner-1.svg" },
   { name: "Тэнгэр Холдинг", file: "assets/sponsors/partner-2.svg" },
@@ -105,6 +242,14 @@ const SPONSORS = [
   { name: "Нэгдсэн Хөрөнгө", file: "assets/sponsors/partner-6.svg" },
   { name: "Цахим Холбоо", file: "assets/sponsors/partner-7.svg" },
   { name: "Мөнх Үйлдвэр", file: "assets/sponsors/partner-8.svg" },
+  { name: "Соёмбо Инвест", file: "assets/sponsors/partner-9.svg" },
+  { name: "Гүрван Гол ХХК", file: "assets/sponsors/partner-10.svg" },
+  { name: "Алтай Финанс", file: "assets/sponsors/partner-11.svg" },
+  { name: "Номин Трейд", file: "assets/sponsors/partner-12.svg" },
+  { name: "Дархан Метал", file: "assets/sponsors/partner-13.svg" },
+  { name: "Тэрэлж Пропертиз", file: "assets/sponsors/partner-14.svg" },
+  { name: "Ундрах Энержи", file: "assets/sponsors/partner-15.svg" },
+  { name: "Билэг Даатгал", file: "assets/sponsors/partner-16.svg" },
 ];
 
 const sponsorTrack = document.getElementById("sponsorTrack");
@@ -129,9 +274,8 @@ const observer = new IntersectionObserver(
 );
 revealEls.forEach((el) => observer.observe(el));
 
-// ============ demo forms (register + sponsor) ============
+// ============ demo forms (register) ============
 const registerForm = document.getElementById("registerForm");
-const sponsorForm = document.getElementById("sponsorForm");
 const toast = document.getElementById("toast");
 
 function showToast(message) {
@@ -146,13 +290,6 @@ registerForm?.addEventListener("submit", (e) => {
   showToast("Демо маягт — жинхэнэ бүртгэл backend холбогдсоны дараа идэвхжинэ.");
   registerForm.reset();
   closeModal(document.getElementById("registerModal"));
-});
-
-sponsorForm?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  showToast("Хүсэлт хүлээн авлаа — жинхэнэ илгээлт backend холбогдсоны дараа идэвхжинэ.");
-  sponsorForm.reset();
-  closeModal(document.getElementById("sponsorModal"));
 });
 
 // ============ count-up stat animation ============

@@ -50,15 +50,16 @@
         </span>
         <span class="brand-badge-group">
           <span class="brand-year">10 ЖИЛ</span>
+          <!-- TODO: 10 жилийн ойн медаль/badge энд нэмэгдэнэ — Мөнжингөөс авах хэвээр -->
         </span>
       </a>
 
       <nav class="nav" id="nav">
-        <a href="#about">Тухай</a>
+        <a href="#top">Нүүр</a>
         <a href="#history">Түүх</a>
         <a href="#agenda">Хөтөлбөр</a>
-        <a href="#participate">Оролцох</a>
-        <a href="#sponsors">Ивээн тэтгэгчид</a>
+        <a href="#register">Бүртгэл</a>
+        <a href="#sponsors">Хамтрагч</a>
         <a href="#contact">Холбоо барих</a>
       </nav>
 
@@ -73,6 +74,10 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="https://license.mn/static/media/render1.d16a43f2cfa4e8b03984.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
       <div class="container hero-inner">
         <p class="eyebrow" data-reveal>
           <span class="material-symbols-outlined">celebration</span>
@@ -103,16 +108,20 @@
           </div>
         </div>
 
+        <!--
         <div class="hero-cta" data-reveal>
-          <button type="button" class="btn btn--ghost" data-modal-open="registerModal">
-            <span class="material-symbols-outlined">how_to_reg</span>
-            Бүртгүүлэх
-          </button>
-          <a href="#agenda" class="btn btn--ghost">
+           <a href="#agenda" class="btn btn--ghost">
             <span class="material-symbols-outlined">calendar_month</span>
             Хөтөлбөр үзэх
           </a>
-        </div>
+          
+           <a href="#register" class="btn btn--ghost">
+            <span class="material-symbols-outlined">how_to_reg</span>
+            Бүртгүүлэх
+          </a>
+
+         
+        </div>-->
       </div>
     </section>
 
@@ -155,18 +164,30 @@
           <h2 class="section-title">10 жилийн <span class="text-accent">хөгжлийн түүх</span></h2>
         </div>
 
-        <div class="timeline" id="timeline">
-          <!-- items injected by JS from data, see js/main.js -->
+        <div class="history-eras" id="historyEras">
+          <button type="button" class="history-era-nav" data-year-nav="-1" aria-label="Өмнөх он">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <div class="history-year-tabs" id="historyYearTabs">
+            <!-- year tabs injected by JS -->
+          </div>
+          <button type="button" class="history-era-nav" data-year-nav="1" aria-label="Дараагийн он">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+
+        <div class="history-list" id="historyList">
+          <!-- active year row injected by JS from data, see js/main.js -->
         </div>
       </div>
     </section>
 
-    <!-- ============ AGENDA ============ -->
+    <!-- ============ AGENDA + PARTICIPATION (нэгтгэсэн) ============ -->
     <section class="section" id="agenda">
       <div class="container">
         <div class="section-head">
           <p class="section-kicker">Хөтөлбөр</p>
-          <h2 class="section-title">Хаана, хэзээ, <span class="text-accent">юу болох вэ</span></h2>
+          <h2 class="section-title">Хаана, хэзээ, <span class="text-accent">юу болох вэ</span>?</h2>
         </div>
 
         <div class="agenda-loc">
@@ -191,7 +212,7 @@
           <div class="agenda-col" data-reveal>
             <h3 class="agenda-col-title">
               <span class="material-symbols-outlined">emoji_events</span>
-              Ёслолын хөтөлбөр
+             Үндсэн хөтөлбөр
             </h3>
             <ol class="agenda-list">
               <li>
@@ -263,117 +284,26 @@
                 <div><strong>Чөлөөт mic</strong></div>
               </li>
             </ul>
-            <p class="agenda-note">
-              <span class="material-symbols-outlined">info</span>
-              After party-д оролцох эсэх нь оролцогчийн төрлөөс хамаарна — доор
-              <a href="#participate">Оролцох нөхцөл</a> хэсгээс дэлгэрэнгүй үзнэ үү.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PARTICIPATION ============ -->
-    <section class="section section--alt" id="participate">
+    <!-- ============ REGISTRATION FLOW ============ -->
+    <section class="section section--alt" id="register">
       <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">Оролцох нөхцөл</p>
-          <h2 class="section-title">Та хэрхэн <span class="text-accent">оролцох вэ</span>?</h2>
+          <div class="section-head">
+          <p class="section-kicker">Бүртгэл</p>
+          <h2 class="section-title">Хэрхэн <span class="text-accent">яаж,  оролцох вэ</span>?</h2>
+       
         </div>
-
-        <div class="plans">
-          <div class="plan-card" data-reveal>
-             <span class="plan-badge plan-badge--accent">Урилгаар оролцогч</span>
-            <p class="plan-desc">Ёслолын үндсэн хөтөлбөрт оролцоно</p>
-            <div class="plan-venue">
-              <div class="plan-venue-stop">
-                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
-                <div class="plan-venue-info">
-                  <h4>Үндсэн хөтөлбөр</h4>
-                  <p>Төрийн ордон, гол танхим</p>
-                </div>
-              </div>
-            </div>
-            <ul class="plan-features">
-              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
-              <li><span class="material-symbols-outlined">check</span> Шагнал гардуулах ёслол</li>
-              <li class="plan-features--muted">
-                <span class="material-symbols-outlined">close</span> After party — оролцохгүй
-              </li>
-            </ul>
-             <div class="plan-tags">
-              <span class="tag tag--accent">Хураамжгүй</span>
-            </div>
-          </div>
-
-          <div class="plan-card" data-reveal>
-            <span class="plan-badge">After Party</span>
-            <h3>Урилгаар оролцогч + After Party</h3>
-            <div class="plan-venue">
-              <div class="plan-venue-stop">
-                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
-                <div class="plan-venue-info">
-                  <h4>Үндсэн хөтөлбөр</h4>
-                  <p>Төрийн ордон, гол танхим</p>
-                </div>
-              </div>
-              <div class="plan-venue-stop">
-                <span class="plan-venue-marker"><span class="material-symbols-outlined plan-venue-walk">directions_walk</span></span>
-                <div class="plan-venue-info">
-                  <h4>After Party</h4>
-                  <p>Тусдаа байршилд</p>
-                </div>
-              </div>
-            </div>
-            <ul class="plan-features">
-              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
-              <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
-            </ul>
-            <div class="plan-tags">
-              <span class="tag tag--gold">Хураамжтай</span>
-            </div>
-          </div>
-
-          <div class="plan-card" data-reveal>
-            <span class="plan-badge plan-badge--accent">Спонсор</span>
-            <h3>Спонсор оролцогч</h3>
-            <p class="plan-desc">Ивээн тэтгэгч байгууллагын төлөөлөл</p>
-            <div class="plan-venue">
-              <div class="plan-venue-stop">
-                <span class="plan-venue-marker"><span class="plan-venue-dot"></span></span>
-                <div class="plan-venue-info">
-                  <h4>Үндсэн хөтөлбөр</h4>
-                  <p>Төрийн ордон, гол танхим</p>
-                </div>
-              </div>
-              <div class="plan-venue-stop">
-                <span class="plan-venue-marker"><span class="material-symbols-outlined plan-venue-walk">directions_walk</span></span>
-                <div class="plan-venue-info">
-                  <h4>After Party</h4>
-                  <p>Тусдаа байршилд</p>
-                </div>
-              </div>
-            </div>
-            <ul class="plan-features">
-              <li><span class="material-symbols-outlined">check</span> Ёслолын хөтөлбөр</li>
-              <li><span class="material-symbols-outlined">check</span> After party — зоог, тоглолт</li>
-          
-            </ul>
-            <div class="plan-tags">
-              <span class="tag tag--accent">Хураамжгүй</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ============ REGISTRATION FLOW ============ -->
-        <div class="flow" id="register">
+        <div class="flow">
           <div class="flow-copy">
             <p class="section-kicker">Бүртгэлийн процесс</p>
             <h3>Урилга хүлээн авахаас баталгаажуулах хүртэл</h3>
             <p class="flow-desc">
-              Урилга бүрт цахим QR код хавсарган бүх хүнд хүргүүлнэ. Хураамжтай тохиолдолд
-              <strong>QPay</strong>-ээр төлбөрөө төлж, төлбөр баталгаажсаны дараа мэдээлэл
-              бүхий баталгаажуулах имэйл автоматаар очно.
+              Урилга бүрт цахим QR код хавсарган бүх хүнд хүргүүлнэ. Бүртгэл баталгаажсаны
+              дараа мэдээлэл бүхий баталгаажуулах имэйл автоматаар очно.
             </p>
             <ol class="flow-steps">
               <li>
@@ -384,17 +314,10 @@
                 </div>
               </li>
               <li>
-                <span class="material-symbols-outlined">payments</span>
-                <div>
-                  <strong>QPay-ээр төлбөр төлөх</strong>
-                  <p>Шаардлагатай тохиолдолд (жишээ нь: after party хураамж) төлбөрөө төлнө</p>
-                </div>
-              </li>
-              <li>
                 <span class="material-symbols-outlined">mark_email_read</span>
                 <div>
                   <strong>Баталгаажуулах имэйл</strong>
-                  <p>Төлбөр амжилттай хийгдмэгц баталгаажуулах имэйл автоматаар илгээгдэнэ</p>
+                  <p>Бүртгэл баталгаажмагц баталгаажуулах имэйл автоматаар илгээгдэнэ</p>
                 </div>
               </li>
             </ol>
@@ -417,37 +340,12 @@
     <section class="section" id="sponsors">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">Ивээн тэтгэгчид</p>
-          <h2 class="section-title">Хамтран ажилладаг <span class="text-accent">түнш байгууллагууд</span></h2>
+          <p class="section-kicker">Хамтран ажилладаг байгууллагууд</p>
+          <h2 class="section-title">Манай <span class="text-accent">түнш байгууллагууд</span></h2>
         </div>
 
         <div class="sponsor-grid" id="sponsorTrack" data-reveal>
           <!-- example partner logos injected by JS, see js/main.js -->
-        </div>
-       
-        <div class="sponsor-cta" data-reveal>
-          <div class="sponsor-cta-copy">
-            <h3>
-              <span class="material-symbols-outlined">workspace_premium</span>
-              Ивээн тэтгэгч болох
-            </h3>
-            <p class="sponsor-cta-desc">Байгууллагынхаа брэндийг 10 жилийн ойн арга хэмжээнд нэгдсэн загвараар харуулах боломж.</p>
-            <ul class="sponsor-cta-list">
-              <li><span class="material-symbols-outlined">check_circle</span> Спонсорын лого нэгдсэн загвараар веб болон танхимд байршина</li>
-              <li><span class="material-symbols-outlined">check_circle</span> Доод хэмжээ — <strong>1,000,000₮</strong> ба түүнээс дээш</li>
-              <li><span class="material-symbols-outlined">check_circle</span> Бүртгүүлэх эцсийн хугацаа — <strong>2026.11.01</strong></li>
-              <li><span class="material-symbols-outlined">check_circle</span> Спонсор төлөөлөгч after party-д хураамжгүй оролцоно</li>
-            </ul>
-          </div>
-          <div class="sponsor-cta-panel">
-            <span class="material-symbols-outlined sponsor-cta-panel-icon">workspace_premium</span>
-            <h4>Хүсэлт илгээх</h4>
-            <p>Мэдээллээ үлдээвэл манай баг тантай эргэн холбогдоно.</p>
-            <button type="button" class="btn btn--accent btn--block" data-modal-open="sponsorModal">
-              Ивээн тэтгэгч болох
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -514,17 +412,19 @@
         <span class="material-symbols-outlined">close</span>
       </button>
       <h3 id="registerModalTitle">Бүртгүүлэх маягт</h3>
-      <p class="modal-note">Энэ бол загварчлалын демо маягт бөгөөд одоогоор мэдээлэл илгээхгүй.</p>
+      <!--<p class="modal-note">Энэ бол загварчлалын демо маягт бөгөөд одоогоор мэдээлэл илгээхгүй.</p>-->
 
       <form id="registerForm" class="flow-form">
-        <label>
-          Овог нэр
-          <input type="text" name="name" placeholder="Бат Болд" required />
-        </label>
-        <label>
-          Байгууллага
-          <input type="text" name="org" placeholder="Байгууллагын нэр" />
-        </label>
+        <div class="form-row">
+          <label>
+            Овог нэр
+            <input type="text" name="name" placeholder="Бат Болд" required />
+          </label>
+          <label>
+            Регистрийн дугаар
+            <input type="text" name="regnum" placeholder="АА00112233" required />
+          </label>
+        </div>
         <div class="form-row">
           <label>
             Утас
@@ -536,69 +436,8 @@
           </label>
         </div>
 
-        <fieldset class="form-fieldset">
-          <legend>Оролцогчийн төрөл</legend>
-          <label class="radio-option">
-            <input type="radio" name="type" value="regular" checked />
-            Урилгаар оролцогч
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="type" value="regular-party" />
-            Урилгаар оролцогч + After Party
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="type" value="sponsor" />
-            Спонсор оролцогч
-          </label>
-        </fieldset>
-
         <button type="submit" class="btn btn--accent btn--block">
           Бүртгэл илгээх
-          <span class="material-symbols-outlined">send</span>
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ============ SPONSOR MODAL ============ -->
-  <div class="modal-overlay" id="sponsorModal" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sponsorModalTitle">
-      <button type="button" class="modal-close" data-modal-close aria-label="Хаах">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-      <h3 id="sponsorModalTitle">Ивээн тэтгэгч болох</h3>
-      <p class="modal-note">Мэдээллээ үлдээвэл бид тантай эргэн холбогдоно.</p>
-
-      <form id="sponsorForm">
-        <label>
-          Байгууллагын нэр
-          <input type="text" name="org" placeholder="ХХК нэр" required />
-        </label>
-        <div class="form-row">
-          <label>
-            Холбогдох хүн
-            <input type="text" name="contact" placeholder="Овог нэр" required />
-          </label>
-          <label>
-            Утас
-            <input type="tel" name="phone" placeholder="9911XXXX" required />
-          </label>
-        </div>
-        <label>
-          И-мэйл
-          <input type="email" name="email" placeholder="name@company.mn" required />
-        </label>
-        <label>
-          Ивээн тэтгэх дүн (₮)
-          <input type="text" name="amount" placeholder="Жишээ: 1,500,000" />
-        </label>
-        <label>
-          Тайлбар
-          <textarea name="message" rows="3" placeholder="Нэмэлт хүсэлт, санал"></textarea>
-        </label>
-
-        <button type="submit" class="btn btn--accent btn--block">
-          Хүсэлт илгээх
           <span class="material-symbols-outlined">send</span>
         </button>
       </form>
