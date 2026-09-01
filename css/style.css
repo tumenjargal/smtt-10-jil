@@ -1364,6 +1364,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-size: 0.85rem;
   margin: 0 0 24px;
 }
+.modal-alert {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: -12px 0 24px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(233, 196, 0, 0.1);
+  border: 1px solid rgba(233, 196, 0, 0.35);
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.modal-alert .material-symbols-outlined { flex: none; color: var(--gold); }
+.modal-alert strong { color: var(--gold); }
 .modal .flow-form {
   padding: 0;
   border: none;
