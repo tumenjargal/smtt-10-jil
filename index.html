@@ -153,16 +153,20 @@
           <button type="button" class="history-era-nav" data-year-nav="-1" aria-label="Өмнөх он">
             <span class="material-symbols-outlined">arrow_back</span>
           </button>
-          <div class="history-year-tabs" id="historyYearTabs">
-            <!-- year tabs injected by JS -->
+
+          <div class="history-body">
+            <div class="history-dots" id="historyYearTabs">
+              <!-- year dots injected by JS -->
+            </div>
+
+            <div class="history-list" id="historyList">
+              <!-- active year row injected by JS from data, see js/main.js -->
+            </div>
           </div>
+
           <button type="button" class="history-era-nav" data-year-nav="1" aria-label="Дараагийн он">
             <span class="material-symbols-outlined">arrow_forward</span>
           </button>
-        </div>
-
-        <div class="history-list" id="historyList">
-          <!-- active year row injected by JS from data, see js/main.js -->
         </div>
       </div>
     </section>

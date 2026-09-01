@@ -74,13 +74,30 @@ document.addEventListener("keydown", (e) => {
 // системийн нэвтрүүлэлтийн жагсаалт — эх сурвалж: байгууллагын системийн он дараалсан timeline (2014-2024)
 const TIMELINE = [
   { year: "2016", photo: "assets/history/ebarimt.png", items: [
-     "Нэмэгдсэн өртгийн албан татварын урамшууллын систем",
-      { name: "Аж ахуйн нэгжийн цахим төлбөрийн баримтын систем", photo: "assets/history/invoice.jpg" },
-      "ЦТБ нэвтрүүлсэн",
-      "ГТСМТТ УТҮГ байгуулагдсан",
+     {
+       name: "Нэмэгдсэн өртгийн албан татварын урамшууллын систем",
+       desc: "Монгол улс эдийн засгийн өсөлтийг татварын бодлогоор дэмжих, тэгш шударга байх зарчмыг хангах, олон улсын жишигт нийцүүлэх чиглэлээр үе шаттай арга хэмжээ авч хэрэгжүүлсний нэг нь Нэмэгдсэн өртгийн албан татварын урамшууллын систем юм. Засгийн газрын 2014 оны 285 дугаар тогтоолоор Нэмэгдсэн өртгийн албан татварын урамшууллын системийг хөгжүүлэх төслийн нэгжийг байгуулж иргэдийн оролцоонд тулгуурлан далд эдийн засгийг бууруулах, татварын бааз суурийг нэмэгдүүлэхэд төр, хувийн хэвшил хамтран амжилттай хэрэгжүүлсэн жишиг төсөл болсон билээ.",
+     },
+      {
+        name: "Аж ахуйн нэгжийн цахим төлбөрийн баримтын систем",
+        photo: "assets/history/invoice.jpg",
+        desc: "Цахим төлбөрийн баримтын системд татвар төлөгч аж ахуйн нэгжийн авах үйлчилгээг хялбаршуулсан.",
+      },
+      {
+        name: "Цахим төлбөрийн баримтын систем - EBARIMT",
+        photo: "assets/history/ebarimt.png",
+        desc: "Монгол Улсын Засгийн газраас татвар төлөгч иргэдийн худалдаа, үйлчилгээний төлбөрт багтсан НӨАТ-аас тодорхой хувийг буцаан авах, төлбөрийн баримтаараа бэлэн мөнгөний хонжвор бүхий сугалаанд оролцох боломжийг олгох замаар иргэдийг урамшуулах, иргэдийн татварын мэдлэг, соёлыг төлөвшүүлэх НӨАТ-ын урамшууллын системийг 2016 оноос хөгжүүлж эхэлсэн.",
+      },
+      {
+        name: "ГТСМТТ УТҮГ байгуулагдсан",
+        desc: "Санхүүгийн мэдээллийн технологийн төв нь санхүү, татвар, гаалийн байгууллагын үйл ажиллагааг цахимжуулах чиг үүрэгтэй Улсын төсөвт үйлдвэрийн газар юм. Мэдээллийн системүүдийг хөгжүүлэх, нэвтрүүлэх, системийн тасралтгүй үйл ажиллагааг хангах, санхүүгийн мэдээллийн технологийн чиглэлээр мэргэжил, арга зүйн зөвлөгөө өгөх, санхүүгийн мэдээллийн нэгдсэн санг бий болгох үйл ажиллагааг хэрэгжүүлдэг. Мөн Засгийн газрын харьяа төрийн захиргааны байгууллагуудын мэдээллийн технологийн уялдаа холбоог сайжруулахад дэмжлэг үзүүлэн ажиллаж байна.",
+      },
   ] },
   { year: "2017", photo: "assets/history/ebarimt.png", items: [
-    "ТУНС, ETAX төсөл хөгжүүлэлт, туршилт",
+    {
+      name: "ТУНС, ETAX төсөл хөгжүүлэлт, туршилт",
+      desc: "ТУНС Татварын ерөнхий газартай байгуулсан “Татварын удирдлагын нэгдсэн системийн хөгжүүлэлт, хамтран ажиллах гэрээ” 2021 оны 12 дугаар сарын 06-ны 2021/263; ТЕГ 01/25 тоот гэрээний дагуу татварын албаны бүх үйл ажиллагааг цахим системээр дамжуулан бүртгэх, тооцоолох, хяналт хийх, төлөвлөгөө, тайлан гаргах гэх мэт татварын удирдлагын үйл ажиллагааг удирдах зорилготой систем. Татвар төлөгч татварын албадаар үйлчлүүлэх ажлыг бүрэн цахимжуулж, орон цай, цаг хугацаанаас үл хамааран татварын тайлан тушаах, татвар төлөх боломжуудыг татварын албаны зүгээс олгож байгаа бөгөөд татварын албан хаагчид өдөр тутмын үйл ажиллагаандаа Монгол улсын аль ч өнцгөөс “Татварын удирдлагын нэгдсэн систем”-д хандан татвар төлөгчдөд үйлчилгээ үзүүлэх, татварын хууль тогтоомжийн хэрэгжилтийг хангуулах, өөрийн ажлын үр дүнг үнэн зөв дүгнүүлэх, мэдээллийн сангийн ашиглалтыг дээшлүүлэх боломжийг бүрдүүлсэн.",
+    },
   ] },
   { year: "2018", photo: "assets/history/ebarimt.png", items: [
     "Татвар төлөгчийн цахим бүртгэлийн систем",
@@ -96,7 +113,10 @@ const TIMELINE = [
     "ХХААХҮЯ-ны урамшуулын систем",
     "Чат бот",
     "Төрийн үйлчилгээний төлбөрийн нэгдсэн систем",
-    "Эрхийн бүртгэлийн сан",
+    {
+      name: "Эрхийн бүртгэлийн сан",
+      desc: "Төрийн сан болон төсөвт байгууллагын хэрэглэгчийн эрхийн бүртгэлийн мэдээллийн нэгдсэн сан үүсгэх, хяналт тавих уг системийг Сангийн яам болон ГТСМТТ УҮГ-ын 2021 оны 12 дугаар сарын 28-нд байгуулсан ажил гүйцэтгэх №290/2021/270 тоот гэрээний дагуу хэрэгжүүлсэн. Төрийн сангийн мэргэжилтэн болон төсөвт байгууллагын эрх бүхий албан тушаалтны мэдээллийн сан үүсгэх, Төсөвт байгууллагын төлбөр тооцооны баримтыг нэг удаагийн түлхүүр үгийн тусламжтайгаар цахимаар баталгаажуулах, Төрийн сангийн дансны баталгаажуулалт, баримтын түүх архивлан мэдээллийн сан үүсгэн хадгалах зорилготой систем юм.",
+    },
     "Төрийн сангийн гүйлгээний нэгдсэн систем",
     "1072 / Хувьцаа/",
     "Хяналт шинжилгээ үнэлгээний систем",
@@ -114,7 +134,10 @@ const TIMELINE = [
     "Гадаад валют арилжааны хяналтын систем",
     "Замын хураамжийн систем /ebarimt/",
     "Санхүүгийн нэгдсэн мэдээллийн систем /Dashboard/",
-    "Цахим санхүүгийн тайлангийн систем /И-Баланс/",
+    {
+      name: "Цахим санхүүгийн тайлангийн систем /И-Баланс/",
+      desc: "Улсын хэмжээнд үйл ажиллагаа эрхлэгч хуулийн этгээдийн мэдээллийг Улсын бүртгэлийн ерөнхий газрын “ХУР” систем болон Нэгдсэн нэвтрэлтийн системд холбон санхүүгийн үйл ажиллагааны тайлан хүлээн авах, хянах уг системийг Сангийн яамны Төрийн нарийн бичгийн даргын ТНБД А/142 тоот тушаал, 2021 оны 12 дугаар сарын 28-ны 290/2021/270 тоот гэрээгээр хөгжүүлж нэвтрүүлсэн.",
+    },
   ] },
   { year: "2022", photo: "assets/history/ebarimt.png", items: [
     "Битүүмжлэгдсэн тээврийн хэрэгслийн систем",
@@ -141,96 +164,103 @@ const historyYearTabs = document.getElementById("historyYearTabs");
 const historyList = document.getElementById("historyList");
 let activeYearIndex = 0;
 
-// years with more than this many systems switch to the compact grid
-// so a dense year (e.g. 10 systems) never forces the page to scroll
-const HISTORY_COMPACT_THRESHOLD = 2;
-
-// items are either a plain string or { name, photo } when a system has its own image
+// items are either a plain string or { name, photo, desc } when a system has its own image/description
 function historyItemName(item) {
   return typeof item === "string" ? item : item.name;
 }
 function historyItemPhoto(item, fallbackPhoto) {
   return typeof item === "string" ? fallbackPhoto : item.photo || fallbackPhoto;
 }
+// no per-system descriptions are sourced yet, so fall back to a plain factual line
+// rather than inventing functional details for real government systems
+function historyItemDesc(item, fallbackYear) {
+  if (typeof item !== "string" && item.desc) return item.desc;
+  return `${fallbackYear} онд нэвтэрсэн систем`;
+}
 
 function renderHistoryDetail(yearIndex, { instant = false, direction = 0 } = {}) {
   if (!historyList) return;
   const entry = TIMELINE[yearIndex];
   const revealAttr = instant ? "" : "data-reveal";
-  const isCompact = entry.items.length > HISTORY_COMPACT_THRESHOLD;
   const slideClass = direction > 0 ? " history-row--enter-right" : direction < 0 ? " history-row--enter-left" : "";
+  const hasContent = entry.items.length > 0;
 
-  let content;
-  if (!entry.items.length) {
-    content = `<p class="history-row-text history-row-text--empty">Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ</p>`;
-  } else if (isCompact) {
-    content = `<ul class="history-row-grid">${entry.items.map((item) => `
-      <li data-photo="${historyItemPhoto(item, entry.photo)}">${historyItemName(item)}</li>
-    `).join("")}</ul>`;
-  } else {
-    content = entry.items.map((item) => `
-      <p class="history-row-text" data-photo="${historyItemPhoto(item, entry.photo)}">${historyItemName(item)}</p>
-    `).join("");
-  }
+  const systemList = hasContent
+    ? `<ul class="history-system-list">${entry.items.map((item, i) => `
+        <li class="history-system-item${i === 0 ? " is-active" : ""}" data-index="${i}"
+          data-photo="${historyItemPhoto(item, entry.photo)}"
+          data-name="${historyItemName(item)}"
+          data-desc="${historyItemDesc(item, entry.year)}">
+          ${historyItemName(item)}
+        </li>
+      `).join("")}</ul>`
+    : `<p class="history-row-desc history-row-desc--empty">Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ.</p>`;
+
+  const firstItem = hasContent ? entry.items[0] : null;
 
   historyList.innerHTML = `
-    <div class="history-row${isCompact ? " history-row--compact" : ""}${slideClass}" ${revealAttr} data-default-photo="${entry.photo}">
-      <div class="history-row-year"><h3>${entry.year}</h3></div>
-      <div class="history-row-body">${content}</div>
+    <div class="history-row${slideClass}" ${revealAttr} data-default-photo="${entry.photo}">
+      <div class="history-row-left">
+        ${systemList}
+      </div>
       <div class="img-slot history-row-photo">
-        <img src="${entry.photo}" alt="${entry.year} он"
-          onerror="this.style.opacity='0'; this.parentElement.classList.add('img-slot--empty')"
-          onload="this.style.opacity='1'; this.parentElement.classList.remove('img-slot--empty')" />
+        <img src="${firstItem ? historyItemPhoto(firstItem, entry.photo) : entry.photo}" alt="${entry.year} он"
+          onerror="this.parentElement.classList.add('img-slot--empty')"
+          onload="this.parentElement.classList.remove('img-slot--empty')" />
         <span class="img-slot-fallback"><span class="material-symbols-outlined">image</span></span>
+        ${firstItem ? `
+          <div class="history-photo-desc-overlay">
+            <h4 class="history-selected-name">${historyItemName(firstItem)}</h4>
+            <p class="history-selected-desc">${historyItemDesc(firstItem, entry.year)}</p>
+          </div>
+        ` : ""}
       </div>
     </div>
   `;
 }
 
-// hovering a system name crossfades the row's photo to that system's own image (falls back to the year's photo)
-function swapHistoryPhoto(photoBox, src) {
+// hovering/clicking a system name selects it: highlights the item, crossfades in its own photo, and updates the title/description
+function selectHistorySystem(item) {
+  const row = item.closest(".history-row");
+  if (!row) return;
+  row.querySelectorAll(".history-system-item").forEach((li) => li.classList.toggle("is-active", li === item));
+
+  const nameEl = row.querySelector(".history-selected-name");
+  const descEl = row.querySelector(".history-photo-desc-overlay p");
+  if (nameEl) nameEl.textContent = item.dataset.name;
+  if (descEl) descEl.textContent = item.dataset.desc;
+
+  const photoBox = row.querySelector(".history-row-photo");
   const img = photoBox?.querySelector("img");
-  if (!img || img.dataset.targetSrc === src) return;
+  const src = item.dataset.photo;
+  if (!img || !src || img.dataset.targetSrc === src) return;
   img.dataset.targetSrc = src;
   img.style.opacity = "0";
   setTimeout(() => {
-    if (img.dataset.targetSrc !== src) return; // a newer hover already took over
+    if (img.dataset.targetSrc !== src) return; // a newer selection already took over
     photoBox.classList.remove("img-slot--empty");
     img.src = src;
+    img.style.opacity = "1";
   }, 160);
 }
 
 historyList?.addEventListener("mouseover", (e) => {
-  const target = e.target.closest("[data-photo]");
-  if (!target) return;
-  const row = target.closest(".history-row");
-  const photoBox = row?.querySelector(".history-row-photo");
-  photoBox?.classList.add("is-active");
-  swapHistoryPhoto(photoBox, target.dataset.photo);
+  const item = e.target.closest(".history-system-item");
+  if (item) selectHistorySystem(item);
 });
-historyList?.addEventListener("mouseout", (e) => {
-  const target = e.target.closest("[data-photo]");
-  if (!target || target.contains(e.relatedTarget)) return;
-  const row = target.closest(".history-row");
-  const photoBox = row?.querySelector(".history-row-photo");
-  photoBox?.classList.remove("is-active");
-  const defaultPhoto = row?.dataset.defaultPhoto;
-  if (defaultPhoto) swapHistoryPhoto(photoBox, defaultPhoto);
+historyList?.addEventListener("click", (e) => {
+  const item = e.target.closest(".history-system-item");
+  if (item) selectHistorySystem(item);
 });
 
 function renderYearTabs() {
   if (!historyYearTabs) return;
   historyYearTabs.innerHTML = TIMELINE.map((entry, i) => `
-    <button type="button" class="history-year-tab${i === activeYearIndex ? " is-active" : ""}" data-year-index="${i}">
-      ${entry.year}
+    <button type="button" class="history-dot${i === activeYearIndex ? " is-active" : ""}" data-year-index="${i}">
+      <span class="history-dot-year">${entry.year}</span>
+      <span class="history-dot-marker"></span>
     </button>
   `).join("");
-  // scroll only the horizontal tab strip into view — scrollIntoView would also scroll the whole page vertically
-  const activeTab = historyYearTabs.querySelector(".is-active");
-  if (activeTab) {
-    const target = activeTab.offsetLeft - (historyYearTabs.clientWidth - activeTab.clientWidth) / 2;
-    historyYearTabs.scrollTo({ left: target, behavior: "smooth" });
-  }
 }
 
 function setActiveYear(index) {
@@ -244,12 +274,12 @@ function setActiveYear(index) {
 
 // hovering a year tab switches to it directly; click still works for touch/keyboard users
 historyYearTabs?.addEventListener("mouseover", (e) => {
-  const tab = e.target.closest(".history-year-tab");
+  const tab = e.target.closest(".history-dot");
   if (!tab) return;
   setActiveYear(Number(tab.dataset.yearIndex));
 });
 historyYearTabs?.addEventListener("click", (e) => {
-  const tab = e.target.closest(".history-year-tab");
+  const tab = e.target.closest(".history-dot");
   if (!tab) return;
   setActiveYear(Number(tab.dataset.yearIndex));
 });
