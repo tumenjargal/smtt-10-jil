@@ -638,24 +638,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .history-row-desc--empty { color: var(--text-muted); font-style: italic; }
 
-/* per-system list: click or hover a name to bring that system's photo + detail into view.
-   the mask fade + visible scrollbar make it obvious there's more to scroll to. */
+/* per-system list: click or hover a name to bring that system's photo + detail into view */
 .history-system-list {
-  position: relative;
   margin: 0;
-  padding: 0 8px 0 0;
+  padding: 0;
   list-style: none;
-  max-height: 220px;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-soft) transparent;
-  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 24px), transparent 100%);
-  mask-image: linear-gradient(180deg, #000 calc(100% - 24px), transparent 100%);
-}
-.history-system-list::-webkit-scrollbar { width: 6px; }
-.history-system-list::-webkit-scrollbar-thumb {
-  background: var(--border-soft);
-  border-radius: 999px;
 }
 .history-system-item {
   padding: 9px 12px;
