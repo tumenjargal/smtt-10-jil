@@ -156,7 +156,7 @@ const TIMELINE = [
     "Татварын удирдлагын нэгдсэн систем - ACTIVITI",
   ] },
   { year: "2025", photo: "assets/history/ebarimt.png", items: [] },
-  { year: "2026", photo: "assets/history/ebarimt.png", items: ["Байгуулагдсаны 10 жилийн ойгоо тэмдэглэв"] },
+  { year: "2026", photo: "assets/history/ebarimt.png", items: [{ name: "Байгуулагдсаны 10 жилийн ойгоо тэмдэглэв", desc: "" }] },
 ];
 
 // ============ history: year-by-year scroll browser ============
@@ -168,13 +168,11 @@ let activeYearIndex = 0;
 function historyItemName(item) {
   return typeof item === "string" ? item : item.name;
 }
-function historyItemPhoto(item, fallbackPhoto) {
-  return typeof item === "string" ? fallbackPhoto : item.photo || fallbackPhoto;
-}
 // no per-system descriptions are sourced yet, so fall back to a plain factual line
-// rather than inventing functional details for real government systems
+// rather than inventing functional details for real government systems.
+// an item with desc explicitly set to "" opts out of that fallback entirely.
 function historyItemDesc(item, fallbackYear) {
-  if (typeof item !== "string" && item.desc) return item.desc;
+  if (typeof item !== "string" && item.desc !== undefined) return item.desc;
   return `${fallbackYear} онд нэвтэрсэн систем`;
 }
 
@@ -186,62 +184,42 @@ function renderHistoryDetail(yearIndex, { instant = false, direction = 0 } = {})
   const hasContent = entry.items.length > 0;
 
   const systemList = hasContent
-    ? `<ul class="history-system-list">${entry.items.map((item, i) => `
+    ? `<ol class="history-system-list">${entry.items.map((item, i) => `
         <li class="history-system-item${i === 0 ? " is-active" : ""}" data-index="${i}"
-          data-photo="${historyItemPhoto(item, entry.photo)}"
           data-name="${historyItemName(item)}"
           data-desc="${historyItemDesc(item, entry.year)}">
           ${historyItemName(item)}
         </li>
-      `).join("")}</ul>`
+      `).join("")}</ol>`
     : `<p class="history-row-desc history-row-desc--empty">Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ.</p>`;
 
   const firstItem = hasContent ? entry.items[0] : null;
 
   historyList.innerHTML = `
-    <div class="history-row${slideClass}" ${revealAttr} data-default-photo="${entry.photo}">
+    <div class="history-row${slideClass}" ${revealAttr}>
       <div class="history-row-left">
         ${systemList}
       </div>
-      <div class="img-slot history-row-photo">
-        <img src="${firstItem ? historyItemPhoto(firstItem, entry.photo) : entry.photo}" alt="${entry.year} он"
-          onerror="this.parentElement.classList.add('img-slot--empty')"
-          onload="this.parentElement.classList.remove('img-slot--empty')" />
-        <span class="img-slot-fallback"><span class="material-symbols-outlined">image</span></span>
+      <div class="history-detail-panel">
         ${firstItem ? `
-          <div class="history-photo-desc-overlay">
-            <h4 class="history-selected-name">${historyItemName(firstItem)}</h4>
-            <p class="history-selected-desc">${historyItemDesc(firstItem, entry.year)}</p>
-          </div>
-        ` : ""}
+          <h4 class="history-selected-name">${historyItemName(firstItem)}</h4>
+          <p class="history-selected-desc">${historyItemDesc(firstItem, entry.year)}</p>
+        ` : `<p class="history-selected-desc history-row-desc--empty">Дэлгэрэнгүй мэдээлэл тун удахгүй нэмэгдэнэ.</p>`}
       </div>
     </div>
   `;
 }
 
-// hovering/clicking a system name selects it: highlights the item, crossfades in its own photo, and updates the title/description
+// hovering/clicking a system name selects it: highlights the item and updates the title/description panel
 function selectHistorySystem(item) {
   const row = item.closest(".history-row");
   if (!row) return;
   row.querySelectorAll(".history-system-item").forEach((li) => li.classList.toggle("is-active", li === item));
 
   const nameEl = row.querySelector(".history-selected-name");
-  const descEl = row.querySelector(".history-photo-desc-overlay p");
+  const descEl = row.querySelector(".history-selected-desc");
   if (nameEl) nameEl.textContent = item.dataset.name;
   if (descEl) descEl.textContent = item.dataset.desc;
-
-  const photoBox = row.querySelector(".history-row-photo");
-  const img = photoBox?.querySelector("img");
-  const src = item.dataset.photo;
-  if (!img || !src || img.dataset.targetSrc === src) return;
-  img.dataset.targetSrc = src;
-  img.style.opacity = "0";
-  setTimeout(() => {
-    if (img.dataset.targetSrc !== src) return; // a newer selection already took over
-    photoBox.classList.remove("img-slot--empty");
-    img.src = src;
-    img.style.opacity = "1";
-  }, 160);
 }
 
 historyList?.addEventListener("mouseover", (e) => {
