@@ -485,8 +485,8 @@ async function renderInviteImage(name) {
   ctx.fillStyle = "#e5e2e1";
   ctx.font = "400 31px " + sans;
   const lead =
-    "Санхүүгийн мэдээллийн технологийн төв УТҮГ байгуулагдсаны " +
-    "10 жилийн ойн баярын арга хэмжээнд Таныг хүндэтгэн урьж байна.";
+    "“Санхүүгийн мэдээллийн технологийн төв” УТҮГ байгуулагдсаны " +
+    "10 жилийн ойн ёслолын арга хэмжээнд Таныг хүндэтгэн урьж байна.";
   let y = 895;
   for (const line of wrapLines(ctx, lead, 820)) {
     ctx.fillText(line, cx, y);
@@ -496,8 +496,8 @@ async function renderInviteImage(name) {
   // Хэзээ / Хаана
   y += 34;
   const rows = [
-    ["ХЭЗЭЭ", "2026.11.06 (Баасан), 10:00"],
-    ["ХААНА", "Сүхбаатарын талбай → Төрийн ордон, гол танхим"],
+    ["ХЭЗЭЭ", "2026 оны 11 дүгээр сарын 06-ны өдөр, 10:00 цаг"],
+    ["ХААНА", "Сүхбаатарын талбай, Төрийн ордны гол танхим"],
   ];
   for (const [label, value] of rows) {
     ctx.fillStyle = "rgba(255,255,255,0.55)";
@@ -520,7 +520,7 @@ async function renderInviteImage(name) {
   ctx.fillStyle = "rgba(224,187,78,0.85)";
   ctx.font = "500 24px " + sans;
   if ("letterSpacing" in ctx) ctx.letterSpacing = "4px";
-  ctx.fillText("СМТТ · 2016–2026", cx, SHARE_H - 58);
+  ctx.fillText("СМТТ · 10 ЖИЛ", cx, SHARE_H - 58);
 
   return new Promise((resolve, reject) => {
     try {
@@ -562,7 +562,7 @@ document.querySelector(".invite-share-btns")?.addEventListener("click", async (e
 
   const blob = sharePromise ? await sharePromise : null;
   if (!blob) {
-    showShareNote("Зураг бэлдэж чадсангүй. Хуудсыг сервер дээрээс (http/https) нээвэл ажиллана.");
+    showShareNote("Урилгын зургийг бэлтгэх боломжгүй байна. Хуудсыг сервер дээрээс нээж дахин оролдоно уу.");
     return;
   }
 
@@ -574,7 +574,7 @@ document.querySelector(".invite-share-btns")?.addEventListener("click", async (e
   // илгээх цорын ганц зам — вэбээс шууд нийтлэх API байхгүй.
   if (navigator.canShare?.({ files: [file] })) {
     try {
-      await navigator.share({ files: [file], title: "СМТТ — 10 жилийн ойн урилга" });
+      await navigator.share({ files: [file], title: "СМТТ — 10 жилийн ойн ёслолын урилга" });
       return;
     } catch (err) {
       if (err.name === "AbortError") return; // хэрэглэгч өөрөө болив
@@ -589,9 +589,9 @@ document.querySelector(".invite-share-btns")?.addEventListener("click", async (e
       "_blank",
       "width=640,height=560"
     );
-    showShareNote("Урилга татагдлаа. Нээгдсэн Facebook цонхонд зургаа хавсаргана уу.");
+    showShareNote("Урилгын зураг татагдлаа. Нээгдсэн Facebook цонхонд хавсаргана уу.");
   } else {
-    showShareNote("Урилга татагдлаа. Instagram нь вэбээс нийтлэхийг зөвшөөрдөггүй тул зургаа аппаараа байршуулна уу.");
+    showShareNote("Урилгын зураг татагдлаа. Instagram нь вэб хуудаснаас нийтлэх боломжгүй тул гар утасны аппликэйшнээр байршуулна уу.");
   }
 });
 
@@ -601,7 +601,7 @@ inviteForm?.addEventListener("submit", (e) => {
 
   const invite = INVITES[regnum];
   if (!invite) {
-    showInviteError("Энэ дугаар дээр урилга олдсонгүй. Уригдсан гэж үзэж байвал бидэнтэй холбогдоно уу.");
+    showInviteError("Энэ дугаараар бүртгэгдсэн урилга олдсонгүй. Тодруулга авахыг хүсвэл зохион байгуулагчидтай холбогдоно уу.");
     return;
   }
 
