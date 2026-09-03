@@ -1,27 +1,61 @@
 /* =========================================================
-   СМТТ 10 жил — design tokens: navy canvas, mint accent,
-   gold accent, native system font stack, blurred gradient orbs.
+   СМТТ 10 жил — design tokens.
+   Баннер: шөнийн тэнгэр + алтан оч (өөрийн өнгийг өөрөө агуулна).
+   Баннераас доош: ivory цаасан дэвсгэр, гүн ногоон accent,
+   бэхэн алт, системийн sans фонт.
    ========================================================= */
 
 :root {
-  --bg: #0b1330;
-  --bg-soft: #101a3d;
-  --surface: #121d42;
-  --surface-2: #16214a;
-  --border: #263159;
-  --border-soft: #38447a;
+  /* Үндсэн сэдэв — харанхуй (баннерын шөнийн тэнгэртэй уялдана).
+     Баннер өөрөө өнгөө агуулдаг тул эдгээр токеноос хамаардаггүй. */
+  --bg: #151c2e;
+  --bg-soft: #1d2539;
+  --surface: #232c44;
+  --surface-2: #29334e;
+  --border: #343e5b;
+  --border-soft: #485475;
 
   --text: #ffffff;
   --text-soft: #e5e2e1;
   --text-muted: #9ca3af;
 
+  /* --accent-bright / --gold-bright нь хоёр сэдэвт ижил дүүргэлтийн өнгө */
   --accent: #47eed0;
-  --accent-dark: #006959;
+  --accent-2: #8ffbe3;
+  --accent-bright: #47eed0;
   --gold: #e9c400;
+  --gold-bright: #e9c400;
+  --on-accent: #06231e;
+
+  /* сэдвээс хамаарах гадаргуу, сүүдэр, өнгөний хальс */
+  --card: linear-gradient(160deg, rgba(41, 51, 78, 0.7), rgba(35, 44, 68, 0.55));
+  --card-solid: linear-gradient(160deg, rgba(41, 51, 78, 0.96), rgba(35, 44, 68, 0.96));
+  --chip: rgba(35, 44, 68, 0.55);
+  --header-bg: rgba(21, 28, 46, 0.78);
+  --scrim: rgba(6, 6, 6, 0.72);
+
+  --tint-1: rgba(71, 238, 208, 0.06);
+  --tint-2: rgba(71, 238, 208, 0.1);
+  --tint-3: rgba(71, 238, 208, 0.18);
+  --tint-ring: rgba(71, 238, 208, 0.2);
+  --tint-line: rgba(71, 238, 208, 0.25);
+  --tint-glow: rgba(71, 238, 208, 0.45);
+  --gold-tint: rgba(233, 196, 0, 0.1);
+  --gold-line: rgba(233, 196, 0, 0.35);
+
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-color-strong: rgba(0, 0, 0, 0.6);
+
+  /* лого цагаан PNG тул цайвар сэдэвт л бараан болгоно;
+     түнш логонууд бараан SVG тул харанхуй сэдэвт эргүүлнэ */
+  --logo-filter: none;
+  --sponsor-filter: invert(1) hue-rotate(180deg);
 
   --font-display: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
+  --header-h: 68px;
   --container: 1180px;
   --radius: 16px;
   --radius-sm: 10px;
@@ -29,9 +63,52 @@
   color-scheme: dark;
 }
 
+/* ---------- цайвар сэдэв (толгой хэсгийн товчоор сонгоно) ----------
+   Anthropic-ийн ivory цаасан өнгө. Баннер нь өөрийн шөнийн тэнгэрийн
+   өнгийг агуулдаг тул хоёр сэдэвт ижил хэвээр — доод хэсэг л солигдоно. */
+:root[data-theme="light"] {
+  --bg: #faf9f5;
+  --bg-soft: #f0eee6;
+  --surface: #ffffff;
+  --surface-2: #f5f4ed;
+  --border: #e8e6dc;
+  --border-soft: #d1cfc5;
+
+  --text: #141413;
+  --text-soft: #3d3d3a;
+  --text-muted: #5e5d59;
+
+  --accent: #00695a;
+  --accent-2: #0f8d78;
+  --gold: #8a6d00;
+  --on-accent: #faf9f5;
+
+  --card: linear-gradient(160deg, #ffffff, #f5f4ed);
+  --card-solid: linear-gradient(160deg, #ffffff, #f7f6f0);
+  --chip: rgba(255, 255, 255, 0.75);
+  --header-bg: rgba(250, 249, 245, 0.92);
+  --scrim: rgba(20, 20, 19, 0.55);
+
+  --tint-1: rgba(0, 105, 90, 0.05);
+  --tint-2: rgba(0, 105, 90, 0.08);
+  --tint-3: rgba(0, 105, 90, 0.14);
+  --tint-ring: rgba(0, 105, 90, 0.18);
+  --tint-line: rgba(0, 105, 90, 0.22);
+  --tint-glow: rgba(0, 105, 90, 0.28);
+  --gold-tint: rgba(138, 109, 0, 0.08);
+  --gold-line: rgba(138, 109, 0, 0.30);
+
+  --shadow-color: rgba(20, 20, 19, 0.11);
+  --shadow-color-strong: rgba(20, 20, 19, 0.16);
+
+  --logo-filter: brightness(0);
+  --sponsor-filter: none;
+
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 html { scroll-behavior: smooth; }
@@ -83,7 +160,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .text-accent {
-  background: linear-gradient(90deg, var(--accent), #8ffbe3);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -100,33 +177,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* ---------- decorative background orbs ---------- */
-.bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(130px);
-  opacity: 0.14;
-  pointer-events: none;
-  z-index: 0;
-}
-.bg-orb--teal {
-  top: -160px;
-  right: -120px;
-  width: 480px;
-  height: 480px;
-  background: var(--accent);
-}
-.bg-orb--gold {
-  bottom: 10%;
-  left: -160px;
-  width: 420px;
-  height: 420px;
-  background: var(--gold);
-  opacity: 0.08;
-}
 
 /* ---------- buttons ---------- */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -138,17 +192,28 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-size: 0.95rem;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
   white-space: nowrap;
 }
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.35) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.6s var(--ease);
+  pointer-events: none;
+}
+.btn:hover::before { transform: translateX(120%); }
 .btn--accent {
-  background: linear-gradient(135deg, var(--accent), #1fd9b8);
+  background: linear-gradient(135deg, var(--accent-bright), #1fd9b8);
   color: #06231e;
-  box-shadow: 0 10px 24px -10px rgba(71, 238, 208, 0.55);
+  box-shadow: 0 10px 24px -10px var(--tint-glow);
 }
 .btn--accent:hover {
-  background: linear-gradient(135deg, #7bf5df, var(--accent));
-  box-shadow: 0 14px 30px -8px rgba(71, 238, 208, 0.65);
+  background: linear-gradient(135deg, #7bf5df, var(--accent-bright));
+  box-shadow: 0 14px 30px -8px var(--tint-line);
   transform: translateY(-2px);
 }
 .btn--accent:active { transform: translateY(0); }
@@ -160,27 +225,64 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(71, 238, 208, 0.08);
+  background: var(--tint-1);
   transform: translateY(-2px);
 }
 .btn--sm { padding: 10px 18px; font-size: 0.85rem; }
 .btn--block { width: 100%; }
 
-/* ---------- header ---------- */
+/* ---------- header ----------
+   Anthropic-ийн SiteHeader-ийн бүтэц: зүүнд лого, баруунд цэс + CTA нэг
+   бүлэг, дэвсгэр нь тунгалаг биш дүүрэн, хүрээгүй, доош гүйлгэхэд нуугдаж
+   дээш гүйлгэхэд буцаж гарна. Ганц ялгаа: манай баннер харанхуй тул түүн
+   дээр байхдаа тунгалаг хэвээр үлдэж, гүйлгэсний дараа дүүрэн болно. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(11, 19, 48, 0.72);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.35s var(--ease), transform 0.3s var(--ease);
 }
+.site-header.is-scrolled,
+.site-header:has(.nav.is-open) {
+  background: var(--bg);
+}
+.site-header.is-hidden { transform: translateY(-100%); }
+
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: var(--header-h);
 }
+/* цэс + CTA нь баруун талдаа нийлнэ */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+/* тунгалаг үедээ баннерын шөнийн тэнгэр дээр цагаанаар уншигдана */
+.site-header:not(.is-scrolled) .nav a,
+.site-header:not(.is-scrolled) .brand-year,
+.site-header:not(.is-scrolled) .brand-fallback-text,
+.site-header:not(.is-scrolled) .nav-toggle,
+.site-header:not(.is-scrolled) .theme-toggle {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(20, 40, 70, 0.35);
+}
+.site-header:not(.is-scrolled) .nav-toggle,
+.site-header:not(.is-scrolled) .theme-toggle { border-color: rgba(255, 255, 255, 0.45); }
+/* харанхуй баннер дээр CTA нь урвуу — цагаан дэвсгэр, бараан үсэг */
+.site-header:not(.is-scrolled) .header-cta {
+  background: #ffffff;
+  color: #141413;
+}
+
+/* лого нь цагаан PNG тул ivory дэвсгэр дээр гарахдаа бараан болно */
+.site-header.is-scrolled .brand-org-logo img,
+.site-footer .brand-org-logo img { filter: var(--logo-filter); }
 .brand {
   display: flex;
   align-items: center;
@@ -189,21 +291,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   min-width: 0;
 }
 
-/* wide wordmark logo — sized by height, width flows naturally (no squish) */
+/* өргөн wordmark лого — өргөнөөр нь хэмжинэ (775×156, ~4.97:1).
+   Өмнө нь өндрөөр хэмжиж байсан тул нарийн дэлгэц дээр байгалийн
+   өргөн нь max-width-ээс хэтэрч, баруун талаараа хайчлагдаж байв. */
 .brand-org-logo {
-  height: 40px;
-  width: auto;
-  max-width: 240px;
-  flex: none;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  flex: 0 1 auto;
+  min-width: 0;
   background: none;
   border: none;
   justify-content: flex-start;
   overflow: visible;
 }
 .brand-org-logo img {
-  width: auto;
-  height: 100%;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   padding: 0;
 }
@@ -242,43 +346,79 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 480px) {
-  .brand-org-logo { height: 30px; max-width: 140px; }
+  .brand-org-logo { width: 130px; }
   .brand-badge-group { padding-left: 10px; gap: 6px; }
   .brand-badge { width: 24px; height: 24px; }
   .brand-year { font-size: 0.62rem; }
+}
+/* хамгийн нарийн дэлгэцэд "10 ЖИЛ" тэмдэг нь сэдэв/цэсний товчтой
+   мөргөлдөх тул нуув — ойн лого баннер дээр аль хэдийн харагдана */
+@media (max-width: 360px) {
+  .brand-badge-group { display: none; }
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
 }
 .nav a {
-  font-size: 0.92rem;
-  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: -0.0025em;
+  white-space: nowrap;
+  text-underline-offset: 0.2em;
+}
+/* hover дээр өнгө солигдохгүй, зүгээр доогуур зураас гарна */
+.nav a:hover { text-decoration: underline; }
+
+/* ---------- CTA товч (Anthropic-ийн "Try Claude"-ийн байрлал) ---------- */
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 15px;
   font-weight: 500;
-  position: relative;
-  padding: 6px 0;
-  transition: color 0.2s ease;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
 }
-.nav a:hover { color: var(--accent); }
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: right 0.25s ease;
-}
-.nav a:hover::after { right: 0; }
+.header-cta:hover { opacity: 0.82; }
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+/* сэдэв солих товч — гар утсан дээр ч харагдана */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--tint-2);
+}
+
 .nav-toggle {
   display: none;
   background: transparent;
@@ -292,89 +432,481 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   cursor: pointer;
 }
 
-/* ---------- hero (big banner with swappable image carousel) ---------- */
+/* =========================================================
+   hero — launch banner: бүтэн дэлгэцийн тэнгэр, tracked огноо,
+   хоёр мөр serif гарчиг, цэглэсэн leader-тэй агуулгын жагсаалт,
+   баруун доод буланд credit.
+   ========================================================= */
 .hero {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  min-height: 100vh;
-  padding: 0px 0 40px;
-  text-align: center;
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 0%, rgba(71, 238, 208, 0.08), transparent 60%);
-  border-bottom: 1px solid var(--border);
-}
+  --sky: #27314b;
+  --sky-high: #3b4767;
+  --sky-low: #151c2e;
+  --strip: 50px;
+  --fx-shadow: 0 4px 16px rgba(20, 40, 70, 0.11);
 
-.hero-bg-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  pointer-events: none;
-}
-
-.hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  //background: linear-gradient(180deg, rgba(11, 19, 48, 0.25) 0%, rgba(11, 19, 48, 0.55) 45%, rgba(11, 19, 48, 0.96) 100%);
-}
-
-.hero-inner {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-top: calc(-1 * var(--header-h));
+  padding: calc(var(--header-h) + 48px) 24px calc(var(--strip) + 32px);
+  color: #ffffff;
+  background: var(--sky);
+  overflow: hidden;
+}
+@media (min-width: 992px) { .hero { padding-right: 48px; padding-left: 48px; } }
+@media (min-width: 1024px) { .hero { padding-right: 80px; padding-left: 80px; } }
+@media (min-width: 900px) {
+  .hero {
+    padding-bottom: 80px;
+  }
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+/* mobile-д доод зурвасыг тусгаарлах нимгэн зураас */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--strip);
+  z-index: 4;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+@media (min-width: 900px) { .hero::after { display: none; } }
+
+/* ---------- тэнгэрийн дүр зураг ---------- */
+.hero-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--sky-high) 0%, var(--sky) 55%, var(--sky-low) 100%);
+}
+/* сарны бүүдгэр гэрэл */
+.hero-sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background: radial-gradient(circle at 78% 16%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 44%);
+}
+/* оддын давхарга */
+.hero-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  animation: sky-twinkle 6s ease-in-out infinite;
+  background:
+    radial-gradient(1.6px 1.6px at 12% 18%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 28% 9%, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 41% 26%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 57% 12%, #fff, transparent),
+    radial-gradient(1.7px 1.7px at 69% 31%, #fff, transparent),
+    radial-gradient(1.3px 1.3px at 83% 8%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 92% 24%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 20% 38%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 48% 44%, #fff, transparent),
+    radial-gradient(1.1px 1.1px at 74% 47%, #fff, transparent);
+}
+
+.hero-cloud {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  will-change: transform;
+  animation: sky-drift linear infinite;
+}
+.hero-cloud:nth-of-type(1) { top: 14%; left: -22%; width: 46vw; height: 13vw; opacity: 0.16; animation-duration: 96s; }
+.hero-cloud:nth-of-type(2) { top: 30%; left: -34%; width: 34vw; height: 9vw;  opacity: 0.12; animation-duration: 132s; animation-delay: -30s; }
+.hero-cloud:nth-of-type(3) { top: 56%; left: -28%; width: 56vw; height: 14vw; opacity: 0.10; animation-duration: 168s; animation-delay: -70s; }
+.hero-cloud:nth-of-type(4) { top: 72%; left: -18%; width: 40vw; height: 10vw; opacity: 0.08; animation-duration: 118s; animation-delay: -50s; }
+
+@keyframes sky-drift { from { transform: translateX(0); } to { transform: translateX(150vw); } }
+@keyframes sky-twinkle { 0%, 100% { opacity: 0.8; } 50% { opacity: 0.5; } }
+
+/* =========================================================
+   алтан оч — "logo intro.mp4"-ийн CSS хувилбар.
+   Бичлэг дэх диагональ алтан очны урсгал, алтан тоосыг
+   видео ачаалахгүйгээр зөвхөн transform/opacity-оор давтав.
+   Тоосонцор бүрийн байрлал, урт, өнцөг, хурд нь HTML доторх
+   --x/--y/--len/--rot/--dur/--delay/--op хувьсагчаар тодорхойлогдоно.
+   ========================================================= */
+.hero-sparks {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-spark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--len, 200px);
+  height: var(--w, 1.5px);
   border-radius: 999px;
-  border: 1px solid rgba(71, 238, 208, 0.3);
-  background: rgba(18, 29, 66, 0.55);
-  backdrop-filter: blur(10px);
-  color: var(--accent);
-  font-size: 0.85rem;
+  opacity: 0;
+  background: linear-gradient(90deg,
+    rgba(224, 187, 78, 0) 0%,
+    rgba(224, 187, 78, 0.35) 38%,
+    #e0bb4e 72%,
+    #fff1c2 92%,
+    rgba(255, 241, 194, 0) 100%);
+  filter: drop-shadow(0 0 4px rgba(224, 187, 78, 0.45));
+  will-change: transform, opacity;
+  animation: spark-fly var(--dur, 5s) linear var(--delay, 0s) infinite;
+}
+@keyframes spark-fly {
+  0%   { opacity: 0;             transform: rotate(var(--rot)) translateX(-14vw) scaleX(0.35); }
+  10%  { opacity: var(--op, 0.8); }
+  72%  { opacity: var(--op, 0.8); }
+  100% { opacity: 0;             transform: rotate(var(--rot)) translateX(62vw) scaleX(1); }
+}
+
+.hero-dust {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 4px);
+  height: var(--s, 4px);
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(255, 241, 194, 0.95), rgba(224, 187, 78, 0) 70%);
+  will-change: transform, opacity;
+  animation: dust-float var(--dur, 10s) ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes dust-float {
+  0%   { opacity: 0;             transform: translate(0, 0) scale(0.6); }
+  25%  { opacity: var(--op, 0.7); }
+  75%  { opacity: var(--op, 0.7); }
+  100% { opacity: 0;             transform: translate(6vw, -9vh) scale(1.1); }
+}
+
+/* ---------- үг: 12 баганат тор ---------- */
+.hero-words {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .hero-words {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 32px;
+    align-items: start;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    container-type: inline-size;
+  }
+}
+
+/* ---------- 10 жилийн ойн алтан лого ----------
+   Зураг нь "logo intro.mp4"-аас гаргаж авсан тунгалаг PNG
+   (assets/logo-10jil.png). Бичлэг дэх тодрох хөдөлгөөн болон
+   алтан гялбааг CSS-ээр давтав. */
+.hero-logo {
+  --fx-order: 0;
+  position: relative;
+  width: clamp(160px, 46vw, 240px);
+  margin: 0 0 28px;
+  filter: blur(0) drop-shadow(0 0 44px rgba(224, 187, 78, 0.5));
+  perspective: 1200px;
+  animation:
+    logo-in 1.5s var(--ease) calc(var(--fx-order) * 0.3s) both,
+    coin-float 4.6s ease-in-out calc(var(--fx-order) * 0.3s + 1.5s) infinite;
+}
+@media (min-width: 900px) {
+  .hero-logo {
+    grid-column: 3 / 11;
+    justify-self: center;
+    width: clamp(190px, 18cqi, 260px);
+    margin-bottom: 32px;
+  }
+}
+@media (min-width: 1240px) { .hero-logo { grid-column: 4 / 10; } }
+
+/* ---------- эргэдэг зоос ----------
+   Хоёр нүүрийн хооронд Z тэнхлэгийн дагуу нимгэн дискүүдийг давхарлаж
+   зузааныг үүсгэв. Зоосыг rotateX-ээр бага зэрэг хазайлгасан тул ирмэг
+   рүүгээ эргэхэд хавтгай нүүрнүүд алга болохгүй, гуулин зах нь харагдана. */
+.hero-coin {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  animation: coin-spin 9s linear calc(var(--fx-order) * 0.3s + 1.5s) infinite;
+}
+
+/* Нүүр нь бүхэлдээ гуулин металл — эмблем нь наасан зураг биш, ижил
+   материал дээр товойлгож цохисон мэт харагдана (эх бичлэг дэх шиг). */
+.hero-coin-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  transform: translateZ(9px);
+  background: radial-gradient(circle at 34% 26%,
+    #fff6da 0%, #f0d590 14%, #d8b257 34%, #b08c2c 60%, #7c5f18 84%, #533f0f 100%);
+  box-shadow:
+    inset 0 0 0 4px rgba(90, 70, 18, 0.55),
+    inset 0 0 0 9px rgba(255, 238, 190, 0.45),
+    inset 0 0 0 11px rgba(90, 70, 18, 0.5),
+    inset 0 -18px 36px rgba(60, 42, 0, 0.4);
+}
+.hero-coin-face--back { transform: rotateY(180deg) translateZ(9px); }
+
+/* Сийлсэн эмблем — ижил PNG-г гурван давхарга болгон дүрсийг нь filter-ээр
+   хар/цагаан болгож ашиглав. CSS mask ашиглаагүй шалтгаан: file:// дээр
+   маскийн зураг CORS-оор хаагдаж, юу ч зурагдахгүй болдог. */
+.hero-coin-relief {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 78%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+/* сүүдэр — баруун доош шилжсэн */
+.hero-coin-relief--sh {
+  filter: brightness(0);
+  opacity: 0.5;
+  transform: translate(calc(-50% + 2.2px), calc(-50% + 2.6px));
+}
+/* гэрэл тусаж буй ирмэг — зүүн дээш шилжсэн */
+.hero-coin-relief--hi {
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transform: translate(calc(-50% - 2.2px), calc(-50% - 2.6px));
+}
+/* сийлбэрийн ёроол — алтан нүүрэн дээр бараан тодорно */
+.hero-coin-relief--body {
+  filter: brightness(0);
+  opacity: 0.82;
+}
+
+/* нүүрэн дээрх тогтмол гялбаа — зоос эргэхэд гэрэл тусаж байгаа мэт */
+.hero-coin-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, 0.3) 48%, transparent 62%);
+}
+
+/* зузаан — Z тэнхлэгийн дагуу тэнцүү зайтай нимгэн дискүүд */
+.hero-coin-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #5c4712 0%, #c9a53f 20%, #ffefc0 50%, #c9a53f 80%, #5c4712 100%);
+  /* нүүрнүүд ±9px дээр байгаа тул ирмэг нь тэдний дотор л багтана —
+     эс тэгвээс ижил Z дээр таарч нүүрийг бүрхэнэ */
+  transform: translateZ(calc(var(--i) * 0.65px - 7.5px));
+}
+
+/* Эргэлтийн тэнхлэг нь босоо биш, налуу — rotateZ, rotateX хоёр эхлээд
+   зоосыг хазайлгаад, дараа нь rotateY тэрхүү налуу тэнхлэгээр эргүүлнэ. */
+@keyframes coin-spin {
+  from { transform: rotateZ(-9deg) rotateX(17deg) rotateY(0deg); }
+  to   { transform: rotateZ(-9deg) rotateX(17deg) rotateY(360deg); }
+}
+
+/* зоос агаарт хөвөх */
+@keyframes coin-float {
+  0%, 100% { transform: translateY(-6px); }
+  50%      { transform: translateY(6px); }
+}
+
+/* гарч ирэхдээ огторгуйд эргэж тодорно */
+@keyframes logo-in {
+  0%   { opacity: 0; transform: perspective(900px) rotateY(-180deg) scale(0.84); filter: blur(18px) drop-shadow(0 0 0 rgba(224, 187, 78, 0)); }
+  55%  { opacity: 1; }
+  100% { opacity: 1; transform: perspective(900px) rotateY(0deg) scale(1);       filter: blur(0) drop-shadow(0 0 44px rgba(224, 187, 78, 0.5)); }
+}
+
+.hero-date {
+  --fx-order: 1;
+  margin: 0 0 16px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: var(--fx-shadow);
+}
+@media (min-width: 900px) {
+  .hero-date { grid-column: 3 / 11; margin-bottom: 24px; text-align: center; }
+}
+@media (min-width: 1240px) { .hero-date { grid-column: 4 / 10; } }
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 9.4vw, 80px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-align: left;
+  text-shadow: var(--fx-shadow);
+  font-feature-settings: "pnum" on, "lnum" on, "liga" on;
+}
+@media (min-width: 900px) {
+  .hero-title { grid-column: 3 / 11; font-size: clamp(48px, 5.3cqi, 72px); line-height: 1.1; }
+}
+@media (min-width: 1240px) { .hero-title { grid-column: 4 / 10; } }
+
+.hero-title-line {
+  --fx-order: 2;
+  white-space: nowrap;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  margin: 0 0 32px;
+  letter-spacing: -0.015em;
+}
+.hero-title-line--second {
+  --fx-order: 3;
+  align-self: flex-end;
+  padding-left: 1em;
+}
+@media (min-width: 900px) { .hero-title-line--second { padding-left: 0; } }
+.hero-title-brand { font-weight: 400; }
+
+/* ---------- агуулгын жагсаалт (цэглэсэн leader) ---------- */
+.hero-index {
+  width: 100%;
+  max-width: 416px;
+  margin: 48px 0 0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 26px;
+  text-align: left;
+  text-shadow: var(--fx-shadow);
+  font-feature-settings: "pnum" on, "lnum" on, "liga" on;
+}
+@media (min-width: 900px) {
+  .hero-index { max-width: none; margin-top: 64px; grid-column: 4 / 10; font-size: 15px; }
+}
+@media (min-width: 1240px) { .hero-index { grid-column: 5 / 9; } }
+
+.hero-index-row {
+  display: block;
+  color: inherit;
+  transition: opacity 0.4s var(--ease), filter 0.4s var(--ease);
+}
+.hero-index-row-inner {
+  --fx-order: 4;
+  display: flex;
+  align-items: baseline;
+}
+.hero-index-row-inner > span { flex-shrink: 0; margin: 0; }
+.hero-index-num {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.hero-index-leader {
+  flex: 1 1 0;
+  min-width: 16px;
+  margin: 0 4px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* хулгана буусан мөр тод, хөрш мөрүүд нь бага зэрэг бүдгэрнэ */
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .hero-index:hover .hero-index-row:not(:hover) { opacity: 0.8; filter: blur(0.5px); }
+  .hero-index:hover .hero-index-row:hover + .hero-index-row { opacity: 0.94; filter: blur(0.15px); }
+  .hero-index:hover .hero-index-row:has(+ .hero-index-row:hover) { opacity: 0.94; filter: blur(0.15px); }
+}
+
+.hero-credit {
+  position: absolute;
+  right: 24px;
+  bottom: calc(var(--strip) / 2);
+  z-index: 4;
+  transform: translateY(50%);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  color: #ffffff;
+  text-shadow: var(--fx-shadow);
+  user-select: none;
+}
+@media (min-width: 900px) { .hero-credit { right: 22px; bottom: 22px; transform: none; } }
+
+/* ---------- ээлжлэн бүдгээс тодрох орох хөдөлгөөн ---------- */
+.hero-date,
+.hero-title-line,
+.hero-index-row-inner {
+  animation: fx-el-in 0.8s ease-out both;
+  animation-delay: calc(var(--fx-order, 0) * 0.3s + var(--fx-row, 0) * 45ms);
+}
+.hero-title-line { animation-name: fx-title-in; }
+
+@keyframes fx-title-in {
+  0%  { opacity: 0; filter: blur(26px); }
+  45% { opacity: 1; }
+  to  { opacity: 1; filter: blur(0); }
+}
+@keyframes fx-el-in {
+  from { opacity: 0; filter: blur(12px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* текст нь орох хөдөлгөөнгүйгээр шууд харагдана */
+  .hero-date,
+  .hero-title-line,
+  .hero-index-row-inner { opacity: 1 !important; animation: none !important; }
+  /* оч, үүл нь хөлдвөл эхлэлийн байрлалдаа бөөгнөрөн харагдах тул нуув */
+  .hero-sparks,
+  .hero-cloud { display: none !important; }
+  /* зоос эргэхээ болиод нүүрээрээ зогсоно */
+  .hero-logo { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .hero-coin { animation: none !important; transform: rotateX(12deg) !important; }
+}
+
+/* ---------- баннерын доорх удиртгал ---------- */
+.hero-summary {
+  position: relative;
+  z-index: 1;
+  padding: clamp(48px, 7vw, 88px) 0 clamp(8px, 2vw, 24px);
+}
+.hero-summary-lead {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 2.1vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--text);
+  text-align: center;
 }
 
 .stat-num {
   font-weight: 800;
-  background: linear-gradient(90deg, var(--accent), #8ffbe3);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.08;
-  margin: 0 0 32px;
-  letter-spacing: 0;
-}
-.hero-title-line {
-  display: block;
-  font-size: clamp(2.6rem, 9vw, 6.4rem);
-  color: var(--text);
-}
-.hero-title-line--accent { color: var(--gold); }
-
-.hero-subtitle {
-  max-width: 680px;
-  font-size: 1.1rem;
-  //color: var(--text-muted);
-  margin: 0 0 40px;
 }
 
 .hero-meta {
@@ -382,7 +914,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 44px;
 }
 .hero-meta-item {
   display: flex;
@@ -390,26 +921,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 8px;
   padding: 10px 18px;
   border-radius: 999px;
-  background: rgba(18, 29, 66, 0.55);
+  background: var(--chip);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-soft);
   font-size: 0.9rem;
   color: var(--text-soft);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
 }
 .hero-meta-item:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
 .hero-meta-item .material-symbols-outlined { color: var(--accent); }
-
-.hero-cta {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 60px;
-}
 
 /* ---------- image slots (drop real photos in later) ---------- */
 .img-slot {
@@ -452,16 +975,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .section-kicker {
   display: inline-flex;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
   margin: 0 0 16px;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 999px;
-  background: rgba(71, 238, 208, 0.08);
-  border: 1px solid rgba(71, 238, 208, 0.25);
+  background: var(--tint-1);
+  border: 1px solid var(--tint-line);
+  box-shadow: 0 0 24px -8px var(--tint-glow);
 }
 .section-title {
   font-family: var(--font-display);
@@ -470,6 +994,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--text);
   margin: 0;
   letter-spacing: -0.01em;
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 /* ---------- about / mission ---------- */
@@ -482,10 +1008,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: relative;
   padding: 36px;
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .about-card::before {
   content: "";
@@ -499,7 +1026,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .about-card:hover {
   border-color: var(--border-soft);
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -22px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px -22px var(--shadow-color);
 }
 .about-card:hover::before { opacity: 1; }
 .about-card-icon {
@@ -509,15 +1036,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: rgba(71, 238, 208, 0.1);
-  border: 1px solid rgba(71, 238, 208, 0.25);
+  background: var(--tint-2);
+  border: 1px solid var(--tint-line);
   color: var(--accent);
   font-size: 1.5rem;
   margin-bottom: 20px;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 .about-card:hover .about-card-icon {
-  background: rgba(71, 238, 208, 0.18);
+  background: var(--tint-3);
   transform: scale(1.06);
 }
 .about-card h3 {
@@ -607,7 +1134,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--accent);
   border-color: var(--accent);
   transform: scale(1.3);
-  box-shadow: 0 0 0 4px rgba(71, 238, 208, 0.2);
+  box-shadow: 0 0 0 4px var(--tint-ring);
 }
 
 .history-list { display: flex; flex-direction: column; }
@@ -668,7 +1195,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .history-system-item:hover { color: var(--text); transform: translateX(4px); }
 .history-system-item.is-active {
-  background: rgba(71, 238, 208, 0.1);
+  background: var(--tint-2);
   color: var(--accent);
   font-weight: 600;
 }
@@ -680,8 +1207,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .history-detail-panel {
   padding: 28px;
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
+  transition: border-color 0.3s var(--ease);
 }
 .history-selected-name {
   margin: 0 0 10px;
@@ -743,8 +1272,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(71, 238, 208, 0.1);
-  border: 1px solid rgba(71, 238, 208, 0.25);
+  background: var(--tint-2);
+  border: 1px solid var(--tint-line);
   color: var(--accent);
   font-size: 1.5rem;
 }
@@ -766,13 +1295,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .agenda-col {
   padding: 36px;
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
 }
+.agenda-col:hover { transform: translateY(-4px); }
 .agenda-col:hover {
   border-color: var(--border-soft);
-  box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px -24px var(--shadow-color);
 }
 .agenda-col-title {
   display: flex;
@@ -859,11 +1390,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .plans .plan-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 32px var(--shadow-color);
 }
 .plan-card--highlight {
   border-color: var(--accent);
-  background: linear-gradient(180deg, rgba(71, 238, 208, 0.07), var(--surface) 40%);
+  background: linear-gradient(180deg, var(--tint-1), var(--surface) 40%);
 }
 .plan-badge {
   align-self: flex-start;
@@ -968,50 +1499,151 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--border-soft);
   color: var(--text-soft);
 }
-.tag--gold { color: var(--gold); border-color: rgba(233, 196, 0, 0.35); }
-.tag--accent { color: var(--accent); border-color: rgba(71, 238, 208, 0.35); }
+.tag--gold { color: var(--gold); border-color: var(--gold-line); }
+.tag--accent { color: var(--accent); border-color: var(--tint-line); }
 
-/* ---------- registration flow ---------- */
-.flow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  scroll-margin-top: 100px;
+/* ---------- урилга харах ---------- */
+/* нам гүм мэдэгдэл — хайрцаг, хүрээ, өнгөт өргөлтгүй */
+.invite-error {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
-.flow-copy h3 {
+
+/* дээд зурвас — баннерын шөнийн тэнгэр, алтан оч.
+   Модалын padding-ийг сөрөг margin-аар нөхөж ирмэг хүртэл дүүрнэ;
+   хоёулаа --modal-pad-аас хамаардаг тул хэзээ ч зөрөхгүй. */
+.invite-card-head {
+  position: relative;
+  margin: calc(-1 * var(--modal-pad)) calc(-1 * var(--modal-pad)) 0;
+  padding: 32px var(--modal-pad) 26px;
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+  background:
+    radial-gradient(130% 95% at 50% -15%, rgba(224, 187, 78, 0.22), transparent 62%),
+    linear-gradient(180deg, #3b4767 0%, #27314b 55%, #1b2338 100%);
+}
+.invite-card-head::before,
+.invite-card-head::after {
+  content: "";
+  position: absolute;
+  height: 1.5px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(224, 187, 78, 0.55), transparent);
+}
+.invite-card-head::before { top: 16%; left: -12%; width: 62%; transform: rotate(-32deg); }
+.invite-card-head::after  { bottom: 14%; right: -14%; width: 70%; transform: rotate(-28deg); opacity: 0.65; }
+
+.invite-card-logo {
+  position: relative;
+  width: 132px;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 0 22px rgba(224, 187, 78, 0.35));
+}
+.invite-card-eyebrow {
+  position: relative;
+  margin: 0 0 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e0bb4e;
+}
+.invite-card-name {
+  position: relative;
+  margin: 0 0 6px;
   font-family: var(--font-display);
-  color: var(--text);
-  font-size: 1.5rem;
-  margin: 0 0 18px;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #ffffff;
 }
-.flow-desc { color: var(--text-muted); margin: 0 0 36px; }
-.flow-steps { display: flex; flex-direction: column; gap: 28px; }
-.flow-steps li { display: flex; gap: 16px; }
-.flow-steps .material-symbols-outlined {
-  flex: none;
-  width: 48px;
-  height: 48px;
+
+/* алтан ромбо бүхий заагч */
+.invite-divider {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: rgba(71, 238, 208, 0.1);
-  border: 1px solid rgba(71, 238, 208, 0.25);
-  color: var(--accent);
+  gap: 14px;
+  margin: 26px 0 22px;
 }
-.flow-steps strong { color: var(--text); font-size: 1rem; }
-.flow-steps p { margin: 6px 0 0; color: var(--text-muted); font-size: 0.88rem; }
+.invite-divider::before,
+.invite-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+}
+.invite-divider span {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
 
+/* албан ёсны урилгын өгүүлбэр */
+.invite-lead {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+.invite-lead strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.invite-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0 0 22px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.invite-meta div {
+  min-width: 0;
+  padding: 14px 16px;
+  background: var(--surface);
+}
+/* сондгой тоотой үед сүүлчийнх нь хоёр баганыг эзэлж, хоосон нүх үлдэхгүй */
+.invite-meta div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.invite-meta dt {
+  margin-bottom: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.invite-meta dd {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .invite-card-head { padding-top: 26px; padding-bottom: 22px; }
+  .invite-meta { grid-template-columns: 1fr; }
+}
+
+/* ---------- форм (урилгын модалд ашиглагдана) ---------- */
 .flow-form {
   padding: 36px;
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.3s var(--ease);
 }
 .flow-form:focus-within { border-color: var(--accent); }
 .flow-form h3 {
@@ -1050,37 +1682,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .flow-form textarea:focus { border-color: var(--accent); }
 .flow-form input::placeholder { color: var(--text-muted); }
 
-.flow-cta {
-  padding: 44px 36px;
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(71, 238, 208, 0.06), var(--surface) 45%);
-  border: 1px solid var(--border);
-  text-align: center;
-}
-.flow-cta-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: rgba(71, 238, 208, 0.1);
-  border: 1px solid rgba(71, 238, 208, 0.25);
-  color: var(--accent);
-  font-size: 2rem;
-  margin-bottom: 18px;
-}
-.flow-cta h3 {
-  font-family: var(--font-display);
-  color: var(--text);
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-}
-.flow-cta p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin: 0 0 24px;
-}
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-fieldset {
   border: 1px solid var(--border-soft);
@@ -1114,7 +1715,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 640px;
   height: 640px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(71, 238, 208, 0.07), transparent 70%);
+  background: radial-gradient(circle, var(--tint-1), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -1139,7 +1740,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   filter: grayscale(1);
   opacity: 0.75;
-  transition: opacity 0.25s ease, filter 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: opacity 0.3s var(--ease), filter 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .sponsor-logo-card::before {
   content: "";
@@ -1155,10 +1756,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   opacity: 1;
   border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 16px 32px -18px var(--shadow-color);
 }
 .sponsor-logo-card:hover::before { opacity: 1; }
-.sponsor-logo-card img { height: 44px; width: auto; max-width: 100%; }
+.sponsor-logo-card img { height: 44px; width: auto; max-width: 100%; filter: var(--sponsor-filter); }
 
 .sponsor-grid[data-reveal] .sponsor-logo-card {
   opacity: 0;
@@ -1271,15 +1872,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 18px;
   padding: 28px;
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--card);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   text-align: left;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .contact-card:hover {
   border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 32px -20px var(--shadow-color);
 }
 .contact-card .material-symbols-outlined {
   display: inline-flex;
@@ -1288,15 +1890,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(71, 238, 208, 0.1);
-  border: 1px solid rgba(71, 238, 208, 0.25);
+  background: var(--tint-2);
+  border: 1px solid var(--tint-line);
   color: var(--accent);
   font-size: 1.4rem;
   flex: none;
   transition: background 0.25s ease;
 }
 .contact-card:hover .material-symbols-outlined {
-  background: rgba(71, 238, 208, 0.18);
+  background: var(--tint-3);
 }
 .contact-card h4 { margin: 0 0 4px; color: var(--text); font-family: var(--font-display); font-size: 0.95rem; }
 .contact-card p { margin: 0; color: var(--text-muted); font-size: 0.88rem; }
@@ -1326,7 +1928,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(6, 6, 6, 0.72);
+  background: var(--scrim);
   backdrop-filter: blur(6px);
   opacity: 0;
   visibility: hidden;
@@ -1342,13 +1944,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   max-width: 520px;
   max-height: 88vh;
   overflow-y: auto;
-  padding: 36px;
+  --modal-pad: 36px;
+  padding: var(--modal-pad);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card-solid);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--border-soft);
-  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 80px -20px var(--shadow-color-strong);
   transform: translateY(16px) scale(0.98);
-  transition: transform 0.25s ease;
+  transition: transform 0.3s var(--ease);
+}
+/* нарийн дэлгэцэд илүү нягт — .invite-card-head мөн энэ утгыг дагана */
+@media (max-width: 480px) {
+  .modal { --modal-pad: 24px; }
 }
 .modal-overlay.is-open .modal {
   transform: translateY(0) scale(1);
@@ -1364,21 +1972,65 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-size: 0.85rem;
   margin: 0 0 24px;
 }
-.modal-alert {
-  display: flex;
+/* ---------- урилга хуваалцах ---------- */
+.invite-share {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.invite-share-label {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.invite-share-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
-  align-items: flex-start;
-  margin: -12px 0 24px;
-  padding: 14px 16px;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 16px;
   border-radius: var(--radius-sm);
-  background: rgba(233, 196, 0, 0.1);
-  border: 1px solid rgba(233, 196, 0, 0.35);
-  color: var(--text-soft);
-  font-size: 0.85rem;
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.share-btn svg { width: 20px; height: 20px; flex: none; }
+.share-btn--fb:hover { border-color: #1877f2; color: #1877f2; background: rgba(24, 119, 242, 0.1); }
+.share-btn--ig:hover { border-color: #dd2a7b; color: #dd2a7b; background: rgba(221, 42, 123, 0.1); }
+.invite-share-note { margin-top: 12px; }
+
+@media (max-width: 380px) {
+  .invite-share-btns { grid-template-columns: 1fr; }
+}
+
+/* нам гүм сануулга — хайрцаг, хүрээ, өнгөт өргөлтгүй, зөвхөн бүдэг тэмдэглэл */
+.modal-note-quiet {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
   line-height: 1.5;
 }
-.modal-alert .material-symbols-outlined { flex: none; color: var(--gold); }
-.modal-alert strong { color: var(--gold); }
+.modal-note-quiet .material-symbols-outlined {
+  flex: none;
+  font-size: 1.05rem;
+  opacity: 0.7;
+}
 .modal .flow-form {
   padding: 0;
   border: none;
@@ -1388,6 +2040,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: absolute;
   top: 20px;
   right: 20px;
+  /* урилгын харанхуй зурвас нь DOM-д дараа байдаг тул түүнээс дээгүүр байх */
+  z-index: 2;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -1401,6 +2055,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+/* урилга нээгдсэн үед X нь харанхуй зурвас дээр буудаг тул хоёр сэдэвт ч
+   цагаанаар харагдана */
+.modal:has(.invite-card:not([hidden])) .modal-close {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.14);
+}
+.modal:has(.invite-card:not([hidden])) .modal-close:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.24);
+}
 
 /* ---------- toast ---------- */
 .toast {
@@ -1409,7 +2074,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   background: var(--accent);
-  color: #06231e;
+  color: var(--on-accent);
   padding: 14px 24px;
   border-radius: 999px;
   font-weight: 600;
@@ -1418,7 +2083,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 100;
-  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 30px -8px var(--shadow-color);
 }
 .toast.is-visible {
   opacity: 1;
@@ -1447,13 +2112,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .about-grid { grid-template-columns: 1fr; }
   .agenda-cols { grid-template-columns: 1fr; }
   .plans { grid-template-columns: 1fr; }
-  .flow { grid-template-columns: 1fr; }
+
   .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
   .sponsor-cta { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav {
     position: fixed;
-    top: 80px;
+    top: var(--header-h);
     left: 0;
     right: 0;
     background: var(--bg);
@@ -1473,8 +2138,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     pointer-events: auto;
   }
   .nav a { width: 100%; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  /* задарсан цэсэнд холбоос нь тодорхой байх тул доогуур зураас хэрэггүй */
+  .nav a:hover { text-decoration: none; color: var(--accent); }
   .nav-toggle { display: flex; }
-  .header-actions .btn--sm { display: none; }
+  /* Anthropic-ийн адил CTA нь нарийн дэлгэцэд нуугдана */
+  .header-cta { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -1496,13 +2164,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--bg);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  background: var(--gold-bright);
+  color: #141413;
+  box-shadow: 0 10px 24px var(--shadow-color);
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s ease;
 }
 .back-to-top.is-visible {
   opacity: 1;

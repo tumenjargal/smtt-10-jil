@@ -2,5 +2,5 @@
   <path d="M2 24 Q9 14 16 24 T30 24" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
   <path d="M2 30 Q9 20 16 30 T30 30" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
   <text x="38" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="16" letter-spacing="0.5"
-    fill="#e5e2e1">ИХ НУУР ХХК</text>
+    fill="#3d3d3a">ИХ НУУР ХХК</text>
 </svg>
