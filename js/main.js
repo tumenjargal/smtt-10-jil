@@ -629,33 +629,6 @@ document.querySelectorAll(".stat-num[data-target]").forEach((el) => {
   animateCountUp(el, Number(el.dataset.target));
 });
 
-// ============ сэдэв солих (ivory ↔ харанхуй) ============
-// Анхдагч нь ivory. Сонголтыг localStorage-д хадгалж, дараагийн
-// айлчлалд сэргээнэ (<head> доторх скрипт анивчихаас сэргийлнэ).
-const themeToggle = document.getElementById("themeToggle");
-
-function applyTheme(theme) {
-  const dark = theme === "dark";
-  document.documentElement.dataset.theme = dark ? "dark" : "light";
-  if (!themeToggle) return;
-  themeToggle.setAttribute("aria-pressed", String(dark));
-  themeToggle.setAttribute("aria-label", dark ? "Цайвар сэдэв рүү шилжих" : "Харанхуй сэдэв рүү шилжих");
-  themeToggle.querySelector(".material-symbols-outlined").textContent = dark ? "light_mode" : "dark_mode";
-}
-
-// үндсэн нь харанхуй; зөвхөн хэрэглэгч цайварыг сонгосон бол л цайвар
-applyTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
-
-themeToggle?.addEventListener("click", () => {
-  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  applyTheme(next);
-  try {
-    localStorage.setItem("smtt-theme", next);
-  } catch (e) {
-    /* хадгалж чадахгүй бол сэдэв энэ хуудсанд л үйлчилнэ */
-  }
-});
-
 // ============ back to top + баннер дээрх тунгалаг header ============
 const backToTop = document.getElementById("backToTop");
 

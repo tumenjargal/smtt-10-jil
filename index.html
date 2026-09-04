@@ -19,14 +19,6 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- CSS-ээс өмнө сэдвийг тавьж, ачаалахад анивчихаас сэргийлнэ -->
-  <script>
-    try {
-      var t = localStorage.getItem("smtt-theme");
-      if (t === "light") document.documentElement.dataset.theme = "light";
-    } catch (e) { /* хувийн горимд localStorage хаалттай байж болно */ }
-  </script>
 </head>
 
 <body>
@@ -73,10 +65,6 @@
           <button class="header-cta" type="button" data-modal-open="inviteModal">
             <span class="header-cta-full">Урилга харах</span>
             <span class="header-cta-short">Урилга</span>
-          </button>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Цайвар сэдэв рүү шилжих"
-            title="Сэдэв солих" aria-pressed="true">
-            <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
           </button>
           <button class="nav-toggle" id="navToggle" aria-label="Цэс нээх" aria-expanded="false">
             <span class="material-symbols-outlined">menu</span>
@@ -140,56 +128,21 @@
         <i class="hero-dust" style="--x:71%;--y:26%;--s:3px;--dur:13.5s;--delay:-3.7s;--op:.4"></i>
       </div>
 
+      <!-- эргэдэг зоос: assets/3dlogo.gif (1500×1500, тунгалаг дэвсгэртэй).
+           Өмнөх Comp 2.mp4 нь alpha-гүй тул хар дэвсгэрийг screen холилтоор
+           хасдаг байсан — GIF нь жинхэнэ тунгалаг тул тэр заль хэрэггүй,
+           алтан туяаг нь дахин drop-shadow-оор өгөв. -->
+      <div class="hero-logo">
+        <img class="hero-logo-img" src="assets/3dlogo.gif"
+          alt="СМТТ — байгуулагдсаны 10 жилийн ойн бэлэг тэмдэг" />
+      </div>
+
       <div class="hero-words">
-        <div class="hero-logo">
-          <!-- эргэдэг зоос: хоёр нүүр + Z тэнхлэгийн дагуу давхарласан
-               нимгэн дискүүд зузааныг үүсгэнэ. Бага зэрэг хазайлгасан тул
-               ирмэг рүүгээ эргэхэд ч алга болохгүй, гуулин зах нь харагдана. -->
-          <div class="hero-coin">
-            <div class="hero-coin-face" role="img"
-              aria-label="СМТТ — байгуулагдсаны 10 жилийн ойн бэлэг тэмдэг">
-              <img class="hero-coin-relief hero-coin-relief--sh" src="assets/logo-emblem.png" alt="" />
-              <img class="hero-coin-relief hero-coin-relief--hi" src="assets/logo-emblem.png" alt="" />
-              <img class="hero-coin-relief hero-coin-relief--body" src="assets/logo-emblem.png" alt="" />
-            </div>
-            <div class="hero-coin-face hero-coin-face--back" aria-hidden="true">
-              <img class="hero-coin-relief hero-coin-relief--sh" src="assets/logo-emblem.png" alt="" />
-              <img class="hero-coin-relief hero-coin-relief--hi" src="assets/logo-emblem.png" alt="" />
-              <img class="hero-coin-relief hero-coin-relief--body" src="assets/logo-emblem.png" alt="" />
-            </div>
-
-            <span class="hero-coin-edge" style="--i:0"></span>
-            <span class="hero-coin-edge" style="--i:1"></span>
-            <span class="hero-coin-edge" style="--i:2"></span>
-            <span class="hero-coin-edge" style="--i:3"></span>
-            <span class="hero-coin-edge" style="--i:4"></span>
-            <span class="hero-coin-edge" style="--i:5"></span>
-            <span class="hero-coin-edge" style="--i:6"></span>
-            <span class="hero-coin-edge" style="--i:7"></span>
-            <span class="hero-coin-edge" style="--i:8"></span>
-            <span class="hero-coin-edge" style="--i:9"></span>
-            <span class="hero-coin-edge" style="--i:10"></span>
-            <span class="hero-coin-edge" style="--i:11"></span>
-            <span class="hero-coin-edge" style="--i:12"></span>
-            <span class="hero-coin-edge" style="--i:13"></span>
-            <span class="hero-coin-edge" style="--i:14"></span>
-            <span class="hero-coin-edge" style="--i:15"></span>
-            <span class="hero-coin-edge" style="--i:16"></span>
-            <span class="hero-coin-edge" style="--i:17"></span>
-            <span class="hero-coin-edge" style="--i:18"></span>
-            <span class="hero-coin-edge" style="--i:19"></span>
-            <span class="hero-coin-edge" style="--i:20"></span>
-            <span class="hero-coin-edge" style="--i:21"></span>
-            <span class="hero-coin-edge" style="--i:22"></span>
-            <span class="hero-coin-edge" style="--i:23"></span>
-          </div>
-        </div>
-
-        <p class="hero-date">2026 оны 11 дүгээр сар</p>
+        <p class="hero-date">2026 оны 11 дүгээр сарын 06 · Төрийн ордон</p>
 
         <h1 class="hero-title" aria-label="СМТТ 10 жил">
-          <span class="hero-title-line" aria-hidden="true">СМТТ</span>
-          <span class="hero-title-line hero-title-line--second" aria-hidden="true">10 жил</span>
+          <span class="hero-title-line" aria-hidden="true">СМТТ 10 жил</span>
+          <span class="hero-title-line hero-title-line--second" aria-hidden="true"></span>
         </h1>
 
         <nav class="hero-index" aria-label="Хуудасны агуулга">
@@ -224,7 +177,7 @@
         </nav>
       </div>
 
-      <span class="hero-credit">2026 оны 11 дүгээр сарын 06 · Төрийн ордон</span>
+      <span class="hero-credit"></span>
     </section>
 
     <!-- ============ HERO SUMMARY ============ -->
