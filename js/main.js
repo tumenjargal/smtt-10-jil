@@ -614,21 +614,6 @@ inviteRegnum?.addEventListener("input", () => {
 });
 
 
-// ============ count-up stat animation ============
-function animateCountUp(el, target, duration = 1400) {
-  const start = performance.now();
-  function tick(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target);
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-document.querySelectorAll(".stat-num[data-target]").forEach((el) => {
-  animateCountUp(el, Number(el.dataset.target));
-});
-
 // ============ back to top + баннер дээрх тунгалаг header ============
 const backToTop = document.getElementById("backToTop");
 
@@ -655,3 +640,39 @@ backToTop?.addEventListener("click", (e) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+
+// ============ scrollspy: толгойн цэс идэвхтэй section-ээ дагана ============
+// Цэсний холбоос бүр нэг section-тэй харгалзана (#top нь баннер). Гүйлгэх
+// үед толгой хэсгийн доод ирмэгийг давсан хамгийн сүүлчийн section-ийг
+// идэвхтэй гэж үзнэ — ингэснээр богино section дээр ч зөв тодорно.
+const navLinks = [...(nav?.querySelectorAll("a[href^='#']") ?? [])];
+const navTargets = navLinks
+  .map((link) => {
+    const id = link.getAttribute("href").slice(1);
+    return { link, el: id === "top" ? document.getElementById("hero") : document.getElementById(id) };
+  })
+  .filter((t) => t.el);
+
+function syncNavToSection() {
+  if (!navTargets.length) return;
+  // толгой хэсгийн өндөр + бага зэрэг зай — энэ шугамыг давсныг "уншиж байна" гэж үзнэ
+  const line = (siteHeader?.offsetHeight ?? 68) + 24;
+  let current = navTargets[0];
+  navTargets.forEach((t) => {
+    if (t.el.getBoundingClientRect().top <= line) current = t;
+  });
+  // хуудасны яг ёроолд хүрвэл сүүлийн section тодорно (богино байж болзошгүй)
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+    current = navTargets[navTargets.length - 1];
+  }
+  navTargets.forEach(({ link }) => {
+    const active = link === current.link;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+window.addEventListener("scroll", syncNavToSection, { passive: true });
+window.addEventListener("resize", syncNavToSection);
+syncNavToSection();
