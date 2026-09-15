@@ -628,10 +628,6 @@ window.addEventListener("scroll", () => {
   backToTop?.classList.toggle("is-visible", y > 480);
   siteHeader?.classList.toggle("is-scrolled", y > 24);
 
-  if (siteHeader && !nav?.classList.contains("is-open")) {
-    const goingDown = y > lastScrollY;
-    siteHeader.classList.toggle("is-hidden", goingDown && y > HEADER_HIDE_AFTER);
-  }
   lastScrollY = y;
 });
 
