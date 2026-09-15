@@ -492,6 +492,86 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 @keyframes star-drift { to { transform: translateY(-14%); } }
 
+/* ---------- hero-ийн дэвсгэр: хар/бараан сүүдэр мэт хөвөгч blob-ууд ----------
+   Blur хийсэн 3 бараан саарал өнгийн radial-gradient blob тус тусдаа
+   хурдан, өөр өөр замаар хөвж, normal blend-ээр хооронд нь холилдоно. */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.hero-aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.hero-aurora-blob--1 {
+  top: -10%;
+  left: 8%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: radial-gradient(circle, rgba(36, 36, 38, 0.6) 0%, transparent 65%);
+  animation: hero-aurora-drift-a 18s ease-in-out infinite alternate;
+}
+
+.hero-aurora-blob--2 {
+  bottom: -15%;
+  right: 6%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 520px;
+  max-height: 520px;
+  background: radial-gradient(circle, rgba(28, 28, 30, 0.55) 0%, transparent 65%);
+  animation: hero-aurora-drift-b 24s ease-in-out infinite alternate;
+}
+
+.hero-aurora-blob--3 {
+  top: 30%;
+  left: 38%;
+  width: 34vw;
+  height: 34vw;
+  max-width: 420px;
+  max-height: 420px;
+  background: radial-gradient(circle, rgba(42, 42, 44, 0.5) 0%, transparent 65%);
+  animation: hero-aurora-drift-c 30s ease-in-out infinite alternate;
+}
+
+@keyframes hero-aurora-drift-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(7vw, 5vh, 0) scale(1.1); }
+  100% { transform: translate3d(-5vw, 7vh, 0) scale(0.98); }
+}
+
+@keyframes hero-aurora-drift-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-8vw, -3vh, 0) scale(1.08); }
+  100% { transform: translate3d(5vw, -7vh, 0) scale(0.96); }
+}
+
+@keyframes hero-aurora-drift-c {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6vw, -7vh, 0) scale(1.06); }
+  100% { transform: translate3d(-6vw, 4vh, 0) scale(0.94); }
+}
+
+@media (max-width: 768px) {
+  .hero-aurora {
+    filter: blur(40px);
+  }
+  .hero-aurora-blob {
+    opacity: 0.5;
+    width: 75vw !important;
+    height: 75vw !important;
+  }
+}
+
 /* ---------- hero-ийн агуулга ---------- */
 .hero-inner {
   position: relative;
@@ -511,7 +591,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-logo-img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 38px rgba(237, 174, 58, 0.42));
 }
 
 
