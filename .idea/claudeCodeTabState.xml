@@ -9,8 +9,9 @@
               <option name="provider" value="claude" />
               <option name="sessionId" value="43df1e20-4a80-41f5-87c4-b4a8081c1278" />
               <option name="cwd" value="C:\Work\itc10" />
-              <option name="model" value="claude-sonnet-5[1m]" />
+              <option name="model" value="claude-opus-5[1m]" />
               <option name="permissionMode" value="bypassPermissions" />
+              <option name="reasoningEffort" value="high" />
             </TabSessionState>
           </value>
         </entry>
