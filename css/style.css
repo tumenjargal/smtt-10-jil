@@ -180,13 +180,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .btn:hover::before { transform: translateX(120%); }
 .btn--accent {
-  background: linear-gradient(135deg, var(--accent-bright), #1fd9b8);
-  color: #06231e;
-  box-shadow: 0 10px 24px -10px var(--tint-glow);
+  /* hero-гийн "Урилга харах" товчтой ижил металл алтан гадаргуу */
+  background: var(--gold-metal-soft);
+  color: #17100a;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-color: rgba(135, 99, 33, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 245, 214, 0.55),
+    inset 0 -1px 0 rgba(90, 63, 15, 0.5);
 }
 .btn--accent:hover {
-  background: linear-gradient(135deg, #7bf5df, var(--accent-bright));
-  box-shadow: 0 14px 30px -8px var(--tint-line);
+  filter: brightness(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 245, 214, 0.7),
+    inset 0 -1px 0 rgba(90, 63, 15, 0.5),
+    inset 0 0 14px rgba(255, 232, 170, 0.35);
   transform: translateY(-2px);
 }
 .btn--accent:active { transform: translateY(0); }
@@ -468,7 +478,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   height: 100vh;
   height: 100svh;
-  padding: clamp(74px, calc(10.5 * var(--s)), 230px) 24px clamp(16px, calc(1.6 * var(--s)), 34px);
+  padding: clamp(64px, calc(9 * var(--s)), 200px) 24px clamp(14px, calc(1.4 * var(--s)), 30px);
   overflow: hidden;
   text-align: center;
 }
@@ -609,8 +619,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 /* ---------- 10 жилийн ойн алтан зоос ---------- */
 .hero-logo {
-  width: clamp(170px, calc(20 * var(--s)), 560px);
-  margin-bottom: clamp(14px, calc(2.14 * var(--s)), 46px);
+  width: clamp(180px, calc(23 * var(--s)), 620px);
+  margin-bottom: clamp(10px, calc(1.6 * var(--s)), 34px);
   animation: fx-el-in 1s var(--ease) both;
 }
 .hero-logo-img {
@@ -653,7 +663,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   align-items: center;
   justify-content: center;
   gap: clamp(10px, calc(1.27 * var(--s)), 28px);
-  margin: clamp(12px, calc(2.14 * var(--s)), 46px) 0 0;
+  margin: clamp(10px, calc(1.6 * var(--s)), 34px) 0 0;
   font-size: clamp(11px, calc(1.14 * var(--s)), 24px);
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -683,7 +693,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: clamp(14px, calc(2.49 * var(--s)), 54px) 0 0;
+  margin: clamp(12px, calc(1.9 * var(--s)), 42px) 0 0;
   padding: clamp(7px, calc(0.81 * var(--s)), 18px) clamp(10px, calc(1.04 * var(--s)), 24px);
   border: 2px solid transparent;
   border-radius: 999px;
@@ -755,7 +765,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   justify-content: center;
   gap: clamp(12px, 1.5vw, 24px);
-  margin-top: clamp(36px, 4.6vw, 64px);
+  margin-top: clamp(18px, calc(3.2 * var(--s)), 50px);
 }
 .hero-star {
   width: clamp(18px, 1.95vw, 32px);
@@ -787,8 +797,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 640px) {
-  .hero { padding: calc(var(--header-h) + 28px) 18px 56px; }
-  .hero-title { letter-spacing: 0.05em; line-height: 1.5; }
+  .hero { padding: calc(var(--header-h) + 24px) 18px 32px; }
+  /* нарийн дэлгэцэд нэг мөрөнд багтахгүй тул мөр таслахыг зөвшөөрнө */
+  .hero-title-line { white-space: normal; }
+  .hero-inner { max-width: none; }
+  .hero-title { letter-spacing: 0.05em; line-height: 1.45; }
   .hero-meta { letter-spacing: 0.14em; gap: 10px; }
   .hero-stars { gap: 6px; }
 }
@@ -1361,9 +1374,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   overflow: hidden;
   text-align: center;
   color: #ffffff;
+  /* сайтын хар+алтан хэлбэрт нийцүүлэв (өмнө нь тэнгэр хөх градиент байсан) */
   background:
-    radial-gradient(130% 95% at 50% -15%, rgba(237, 174, 58, 0.22), transparent 62%),
-    linear-gradient(180deg, #3b4767 0%, #27314b 55%, #1b2338 100%);
+    radial-gradient(130% 95% at 50% -15%, rgba(237, 174, 58, 0.28), transparent 62%),
+    linear-gradient(180deg, #16120b 0%, #0d0b07 55%, #000000 100%);
+  border-bottom: 1px solid var(--gold-line);
 }
 .invite-card-head::before,
 .invite-card-head::after {
@@ -1486,6 +1501,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: border-color 0.3s var(--ease);
 }
 .flow-form:focus-within { border-color: var(--accent); }
+/* модал дотор маягт нь өөрөө хайрцаг үүсгэхгүй — модал аль хэдийн хүрээ, зайтай */
+.modal .flow-form {
+  padding: 0;
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  gap: 22px;
+}
 .flow-form h3 {
   font-family: var(--font-display);
   color: var(--text);
@@ -1500,15 +1523,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .flow-form label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: var(--text-soft);
-  font-weight: 500;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-champagne);
+  font-weight: 600;
 }
 .flow-form input,
 .flow-form textarea {
-  background: var(--bg-soft);
-  border: 1px solid var(--border-soft);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--gold-line);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   color: var(--text);
@@ -1608,7 +1634,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .sponsor-grid { grid-template-columns: 1fr; }
+  /* 16 карт нэг баганаар бол хуудас хэт урсдаг тул 2 баганаар нягтлав */
+  .sponsor-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sponsor-logo-card { padding: 14px 10px; }
 }
 
 .sponsor-cta {
@@ -1790,6 +1818,10 @@ a.contact-card:hover .material-symbols-outlined {
   object-fit: cover;
   /* нягт хэсэг нь бичлэгийн доод талд тул доод ирмэгээр нь тулгана */
   object-position: center bottom;
+  opacity: 0.4;
+  /* дээд ирмэг нь тодорхой шугам болохгүйн тулд аажмаар шингэнэ */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 35%, #000 65%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 35%, #000 65%);
   pointer-events: none;
 }
 /* доод хэсгийн алтан тоос — загварт булангуудад нягт, дээшээ шингэнэ.
@@ -1874,8 +1906,10 @@ a.contact-card:hover .material-symbols-outlined {
   border-radius: var(--radius);
   background: var(--card-solid);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--border-soft);
-  box-shadow: 0 30px 80px -20px var(--shadow-color-strong);
+  border: 1px solid var(--gold-line);
+  box-shadow:
+    0 30px 80px -20px var(--shadow-color-strong),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transform: translateY(16px) scale(0.98);
   transition: transform 0.3s var(--ease);
 }
@@ -1895,10 +1929,23 @@ a.contact-card:hover .material-symbols-outlined {
   font-size: 1.3rem;
   margin: 0 0 8px;
 }
+/* модалын гарчиг — сайтын алтан, том үсэгтэй хэв маягаар.
+   Хаах товчтой мөргөлдөхгүйн тулд баруун талд зай үлдээв. */
+.modal-title {
+  margin: 0 0 8px;
+  padding-right: 48px;
+  font-family: var(--font-display);
+  font-size: clamp(15px, calc(1.15 * var(--s)), 24px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
 .modal-note {
   color: var(--text-muted);
   font-size: 0.85rem;
   margin: 0 0 24px;
+  line-height: 1.6;
 }
 /* ---------- урилга хуваалцах ---------- */
 .invite-share {
@@ -1973,9 +2020,9 @@ a.contact-card:hover .material-symbols-outlined {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--border-soft);
-  background: var(--bg-soft);
-  color: var(--text-soft);
+  border: 1px solid var(--gold-line);
+  background: rgba(44, 44, 44, 0.35);
+  color: var(--gold-champagne);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2243,3 +2290,67 @@ a.contact-card:hover .material-symbols-outlined {
 
 /* модал доторх гарчиг алтан */
 .modal h3 { color: var(--gold); }
+
+/* =========================================================
+   ГАР УТАСНЫ УНШИГДАХ ЧАНАР + ХҮРЭЛЦЭХ ТАЛБАЙ
+   Үндсэн хэмжээсүүд нь --s (өргөнөөс хамаарсан) дээр тулгуурладаг тул
+   нарийн дэлгэцэд clamp-ийн доод утга руугаа шахагдаж 10-11px болдог.
+   Утсан дээр уншихад эвгүй тул энд тохирох хэмжээг нь тогтоов.
+   ========================================================= */
+@media (max-width: 640px) {
+  /* --- гарчиг, үндсэн бичвэр --- */
+  .section-title { font-size: 18px; line-height: 1.35; }
+  .hero-title { font-size: 17px; }
+  .hero-meta { font-size: 13px; letter-spacing: 0.12em; }
+
+  .about-card h3 { font-size: 15px; }
+  .about-card p { font-size: 14px; line-height: 1.7; max-width: none; }
+
+  .agenda-dur { font-size: 12px; min-width: 70px; }
+  .agenda-list li strong { font-size: 14px; }
+  .agenda-block-title { font-size: 15px; }
+
+  .history-system-item { font-size: 14px; }
+  .history-dot-year { font-size: 14px; }
+
+  .contact-card h4 { font-size: 13px; }
+  .contact-card p { font-size: 15px; }
+  .footer-copy { font-size: 12px; line-height: 1.6; }
+
+  .modal-note { font-size: 14px; }
+  .flow-form label { font-size: 13px; }
+  .flow-form input { font-size: 16px; } /* 16px — iOS Safari талбарт фокуслахад томрохоос сэргийлнэ */
+
+  /* --- хүрэлцэх талбай (≥44px) --- */
+  .nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  .nav-toggle { width: 44px; height: 44px; }
+  .btn { padding: 15px 24px; }
+}
+
+/* Задарсан гар утасны цэс: ширээний компьютерийн "pill" хэлбэр (999px радиус,
+   градиент хүрээ) босоо жагсаалтад тохирохгүй — энгийн мөр болгов. */
+@media (max-width: 960px) {
+  .nav a,
+  .nav a.is-active,
+  .nav a:hover,
+  .nav a.is-active:hover {
+    border-radius: 0;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    animation: none;
+  }
+  .nav a:last-child { border-bottom: none; }
+  .nav a.is-active {
+    color: var(--gold);
+    box-shadow: inset 3px 0 0 var(--gold);
+    padding-left: 14px;
+  }
+}
